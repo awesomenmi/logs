@@ -9,6 +9,7 @@
 4. Настроим прослушивание auditd порта 60. Изменим файл конфиг _/etc/audit/auditd.conf_ - раскоментируем строчку _##tcp_listen_port = 60_ и перезапустим службу
 
 ## Настройка клиента web
+###### ([typescript](https://github.com/awesomenmi/logs/blob/master/web_script))
 
 ### Настройка rsyslog и nginx 
 
@@ -20,8 +21,6 @@
 6. Перезапустим nginx `systemctl restart nginx`
 
 ### Настройка auditd и audisp-plugin
-
-###### ([typescript](https://github.com/awesomenmi/logs/blob/master/web_script))
 
 1. Добавим правило аудита для мониторинга изменений конфига nginx. Создадим файл _/etc/audit/rules.d/nginx_conf.rules_ c содержимым `-w /etc/nginx -p wa -k nginx_conf`
 2. Установим audisp-plugin `yum install audisp-plugin`
