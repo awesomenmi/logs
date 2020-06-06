@@ -1,0 +1,219 @@
+Script started on Sat 06 Jun 2020 02:21:33 PM UTC
+]0;root@log:/home/vagrant[?1034h[root@log vagrant]# мш[K[Kvi /etc/rsyslog.conf
+[?1049h[?1h=[1;30r[?12;25h[?12l[?25h[27m[m[H[2J[?25l[30;1H"/etc/rsyslog.conf" 91L, 3232C[1;1H# rsyslog configuration file
+
+# For more information see /usr/share/doc/rsyslog-*/rsyslog_conf.html
+# If you experience problems, see http://www.rsyslog.com/doc/troubleshoot.html
+
+#### MODULES ####
+
+# The imjournal module bellow is now used as a message source instead of imuxsock.
+$ModLoad imuxsock # provides support for local system logging (e.g. via logger command)
+$ModLoad imjournal # provides access to the systemd journal
+#$ModLoad imklog # reads kernel messages (the same are read from journald)
+#$ModLoad immark  # provides --MARK-- message capability
+
+# Provides UDP syslog reception
+#$ModLoad imudp
+#$UDPServerRun 514
+
+# Provides TCP syslog reception
+#$ModLoad imtcp
+#$InputTCPServerRun 514
+
+
+#### GLOBAL DIRECTIVES ####
+
+# Where to place auxiliary files
+$WorkDirectory /var/lib/rsyslog
+
+# Use default timestamp format
+$ActionFileDefaultTemplate RSYSLOG_TraditionalFileFormat[1;1H[?12l[?25h
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[19;1H#[?25l[30;1H[1m-- INSERT --[m[30;13H[K[19;1H[?12l[?25h#[?25l$ModLoad imtcp[19;15H[K[19;1H[?12l[?25h
+#[?25l$InputTCPServerRun 514[20;23H[K[20;1H[?12l[?25h[30;1H[K[20;1H[?25l[?12l[?25h[?25l[30;1H:[?12l[?25hwq[?25l"/etc/rsyslog.conf" 91L, 3230C written
+[?1l>[?12l[?25h[?1049l]0;root@log:/home/vagrant[root@log vagrant]# systemctl restart rsyslog
+]0;root@log:/home/vagrant[root@log vagrant]# vi etc[K[K[K/etc/audit/auditd.conf
+[?1049h[?1h=[1;30r[?12;25h[?12l[?25h[27m[m[H[2J[?25l[30;1H"/etc/audit/auditd.conf" 37L, 805C[1;1H#
+# This file controls the configuration of the audit daemon
+#
+
+local_events = yes
+write_logs = yes
+log_file = /var/log/audit/audit.log
+log_group = root
+log_format = RAW
+flush = INCREMENTAL_ASYNC
+freq = 50
+max_log_file = 8
+num_logs = 5
+priority_boost = 4
+disp_qos = lossy
+dispatcher = /sbin/audispd
+name_format = NONE
+##name = mydomain
+max_log_file_action = ROTATE
+space_left = 75
+space_left_action = SYSLOG
+verify_email = yes
+action_mail_acct = root
+admin_space_left = 50
+admin_space_left_action = SUSPEND
+disk_full_action = SUSPEND
+disk_error_action = SUSPEND
+use_libwrap = yes
+##tcp_listen_port = 60[1;1H[?12l[?25h
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[?25l[1;29r[29;1H
+[1;30r[29;1Htcp_listen_queue = 5[30;1H[K[29;1H[?12l[?25ht[28;2H#[?25l
+
+[1m-- INSERT --[28;1H[?12l[?25h[m##[?25ltcp_listen_port = 60[28;22H[K[28;2H[?12l[?25h[?25ltcp_listen_port = 60[28;21H[K[28;1H[?12l[?25h[30;1H[K[28;1H[?25l[?12l[?25h[?25l
+
+:[?12l[?25hwq[?25l"/etc/audit/auditd.conf" 37L, 803C written
+[?1l>[?12l[?25h[?1049l]0;root@log:/home/vagrant[root@log vagrant]# sysr[Ktemctl restart aut[Kditd
+Failed to restart auditd.service: Operation refused, unit auditd.service may be requested by dependency only (it is configured to refuse manual start/stop).
+See system logs and 'systemctl status auditd.service' for details.
+]0;root@log:/home/vagrant[root@log vagrant]# systemctl restart auditd[K
+Failed to restart audit.service: Unit not found.
+]0;root@log:/home/vagrant[root@log vagrant]# systemctl restart audit[1P audit[1P audit[1P audit[1P audit[1P audit[1P audit[1P audits auditt audita auditt auditu audits audit
+Unit audit.service could not be found.
+]0;root@log:/home/vagrant[root@log vagrant]# systemctl status auditd
+[1;32m●[0m auditd.service - Security Auditing Service
+   Loaded: loaded (/usr/lib/systemd/system/auditd.service; enabled; vendor preset: enabled)
+   Active: [1;32mactive (running)[0m since Sat 2020-06-06 13:40:55 UTC; 43min ago
+     Docs: man:auditd(8)
+           https://github.com/linux-audit/audit-documentation
+ Main PID: 29463 (auditd)
+   CGroup: /system.slice/auditd.service
+           └─29463 /sbin/auditd
+
+Jun 06 13:40:55 log augenrules[29467]: lost 0
+Jun 06 13:40:55 log augenrules[29467]: backlog 1
+Jun 06 13:40:55 log augenrules[29467]: enabled 1
+Jun 06 13:40:55 log augenrules[29467]: failure 1
+Jun 06 13:40:55 log augenrules[29467]: pid 29463
+Jun 06 13:40:55 log augenrules[29467]: rate_limit 0
+Jun 06 13:40:55 log augenrules[29467]: backlog_limit 8192
+Jun 06 13:40:55 log augenrules[29467]: lost 0
+Jun 06 13:40:55 log augenrules[29467]: backlog 1
+Jun 06 13:40:55 log systemd[1]: Started Security Auditing Service.
+]0;root@log:/home/vagrant[root@log vagrant]# systemctl status auditd[K[1@restart[C[C[C[C[C[Cs
+Failed to restart audits.service: Unit not found.
+]0;root@log:/home/vagrant[root@log vagrant]# systemctl restart audits[Kd
+Failed to restart auditd.service: Operation refused, unit auditd.service may be requested by dependency only (it is configured to refuse manual start/stop).
+See system logs and 'systemctl status auditd.service' for details.
+]0;root@log:/home/vagrant[root@log vagrant]# systemctl status auditd.service
+[1;32m●[0m auditd.service - Security Auditing Service
+   Loaded: loaded (/usr/lib/systemd/system/auditd.service; enabled; vendor preset: enabled)
+   Active: [1;32mactive (running)[0m since Sat 2020-06-06 13:40:55 UTC; 44min ago
+     Docs: man:auditd(8)
+           https://github.com/linux-audit/audit-documentation
+ Main PID: 29463 (auditd)
+   CGroup: /system.slice/auditd.service
+           └─29463 /sbin/auditd
+
+Jun 06 13:40:55 log augenrules[29467]: lost 0
+Jun 06 13:40:55 log augenrules[29467]: backlog 1
+Jun 06 13:40:55 log augenrules[29467]: enabled 1
+Jun 06 13:40:55 log augenrules[29467]: failure 1
+Jun 06 13:40:55 log augenrules[29467]: pid 29463
+Jun 06 13:40:55 log augenrules[29467]: rate_limit 0
+Jun 06 13:40:55 log augenrules[29467]: backlog_limit 8192
+Jun 06 13:40:55 log augenrules[29467]: lost 0
+Jun 06 13:40:55 log augenrules[29467]: backlog 1
+Jun 06 13:40:55 log systemd[1]: Started Security Auditing Service.
+]0;root@log:/home/vagrant[root@log vagrant]# service auditd status
+Redirecting to /bin/systemctl status auditd.service
+[1;32m●[0m auditd.service - Security Auditing Service
+   Loaded: loaded (/usr/lib/systemd/system/auditd.service; enabled; vendor preset: enabled)
+   Active: [1;32mactive (running)[0m since Sat 2020-06-06 13:40:55 UTC; 46min ago
+     Docs: man:auditd(8)
+           https://github.com/linux-audit/audit-documentation
+ Main PID: 29463 (auditd)
+   CGroup: /system.slice/auditd.service
+           └─29463 /sbin/auditd
+
+Jun 06 13:40:55 log augenrules[29467]: lost 0
+Jun 06 13:40:55 log augenrules[29467]: backlog 1
+Jun 06 13:40:55 log augenrules[29467]: enabled 1
+Jun 06 13:40:55 log augenrules[29467]: failure 1
+Jun 06 13:40:55 log augenrules[29467]: pid 29463
+Jun 06 13:40:55 log augenrules[29467]: rate_limit 0
+Jun 06 13:40:55 log augenrules[29467]: backlog_limit 8192
+Jun 06 13:40:55 log augenrules[29467]: lost 0
+Jun 06 13:40:55 log augenrules[29467]: backlog 1
+Jun 06 13:40:55 log systemd[1]: Started Security Auditing Service.
+]0;root@log:/home/vagrant[root@log vagrant]# service auditd condrestart
+Redirecting to /bin/systemctl status auditd.service
+Stopping logging: [60G[[0;32m  OK  [0;39m]
+Redirecting start to /bin/systemctl start auditd.service
+]0;root@log:/home/vagrant[root@log vagrant]# service auditd condrestart[5Pstatus
+Redirecting to /bin/systemctl status auditd.service
+[1;32m●[0m auditd.service - Security Auditing Service
+   Loaded: loaded (/usr/lib/systemd/system/auditd.service; enabled; vendor preset: enabled)
+   Active: [1;32mactive (running)[0m since Sat 2020-06-06 14:27:10 UTC; 3s ago
+     Docs: man:auditd(8)
+           https://github.com/linux-audit/audit-documentation
+  Process: 17864 ExecStartPost=/sbin/augenrules --load (code=exited, status=0/SUCCESS)
+  Process: 17859 ExecStart=/sbin/auditd (code=exited, status=0/SUCCESS)
+ Main PID: 17860 (auditd)
+   CGroup: /system.slice/auditd.service
+           └─17860 /sbin/auditd
+
+Jun 06 14:27:10 log augenrules[17864]: lost 0
+Jun 06 14:27:10 log augenrules[17864]: backlog 1
+Jun 06 14:27:10 log augenrules[17864]: enabled 1
+Jun 06 14:27:10 log augenrules[17864]: failure 1
+Jun 06 14:27:10 log augenrules[17864]: pid 17860
+Jun 06 14:27:10 log augenrules[17864]: rate_limit 0
+Jun 06 14:27:10 log augenrules[17864]: backlog_limit 8192
+Jun 06 14:27:10 log augenrules[17864]: lost 0
+Jun 06 14:27:10 log augenrules[17864]: backlog 1
+Jun 06 14:27:10 log systemd[1]: Started Security Auditing Service.
+]0;root@log:/home/vagrant[root@log vagrant]# exit
+exit
+
+Script done on Sat 06 Jun 2020 02:27:18 PM UTC
