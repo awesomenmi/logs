@@ -1,0 +1,854 @@
+Script started on Sat 06 Jun 2020 03:13:49 PM UTC
+]0;root@web:/home/vagrant[?1034h[root@web vagrant]# yum install nginx
+Loaded plugins: fastestmirror
+Loading mirror speeds from cached hostfile
+ * base: mirrors.datahouse.ru
+ * epel: epel.mirror.far.fi
+ * extras: mirrors.datahouse.ru
+ * updates: dedic.sh
+Resolving Dependencies
+--> Running transaction check
+---> Package nginx.x86_64 1:1.16.1-1.el7 will be installed
+--> Processing Dependency: nginx-all-modules = 1:1.16.1-1.el7 for package: 1:nginx-1.16.1-1.el7.x86_64
+--> Processing Dependency: nginx-filesystem = 1:1.16.1-1.el7 for package: 1:nginx-1.16.1-1.el7.x86_64
+--> Processing Dependency: nginx-filesystem for package: 1:nginx-1.16.1-1.el7.x86_64
+--> Processing Dependency: redhat-indexhtml for package: 1:nginx-1.16.1-1.el7.x86_64
+--> Processing Dependency: system-logos for package: 1:nginx-1.16.1-1.el7.x86_64
+--> Processing Dependency: libprofiler.so.0()(64bit) for package: 1:nginx-1.16.1-1.el7.x86_64
+--> Running transaction check
+---> Package centos-indexhtml.noarch 0:7-9.el7.centos will be installed
+---> Package centos-logos.noarch 0:70.0.6-3.el7.centos will be installed
+---> Package gperftools-libs.x86_64 0:2.6.1-1.el7 will be installed
+---> Package nginx-all-modules.noarch 1:1.16.1-1.el7 will be installed
+--> Processing Dependency: nginx-mod-http-image-filter = 1:1.16.1-1.el7 for package: 1:nginx-all-modules-1.16.1-1.el7.noarch
+--> Processing Dependency: nginx-mod-http-perl = 1:1.16.1-1.el7 for package: 1:nginx-all-modules-1.16.1-1.el7.noarch
+--> Processing Dependency: nginx-mod-http-xslt-filter = 1:1.16.1-1.el7 for package: 1:nginx-all-modules-1.16.1-1.el7.noarch
+--> Processing Dependency: nginx-mod-mail = 1:1.16.1-1.el7 for package: 1:nginx-all-modules-1.16.1-1.el7.noarch
+--> Processing Dependency: nginx-mod-stream = 1:1.16.1-1.el7 for package: 1:nginx-all-modules-1.16.1-1.el7.noarch
+---> Package nginx-filesystem.noarch 1:1.16.1-1.el7 will be installed
+--> Running transaction check
+---> Package nginx-mod-http-image-filter.x86_64 1:1.16.1-1.el7 will be installed
+--> Processing Dependency: gd for package: 1:nginx-mod-http-image-filter-1.16.1-1.el7.x86_64
+--> Processing Dependency: libgd.so.2()(64bit) for package: 1:nginx-mod-http-image-filter-1.16.1-1.el7.x86_64
+---> Package nginx-mod-http-perl.x86_64 1:1.16.1-1.el7 will be installed
+---> Package nginx-mod-http-xslt-filter.x86_64 1:1.16.1-1.el7 will be installed
+---> Package nginx-mod-mail.x86_64 1:1.16.1-1.el7 will be installed
+---> Package nginx-mod-stream.x86_64 1:1.16.1-1.el7 will be installed
+--> Running transaction check
+---> Package gd.x86_64 0:2.0.35-26.el7 will be installed
+--> Processing Dependency: libjpeg.so.62(LIBJPEG_6.2)(64bit) for package: gd-2.0.35-26.el7.x86_64
+--> Processing Dependency: libjpeg.so.62()(64bit) for package: gd-2.0.35-26.el7.x86_64
+--> Processing Dependency: libfontconfig.so.1()(64bit) for package: gd-2.0.35-26.el7.x86_64
+--> Processing Dependency: libXpm.so.4()(64bit) for package: gd-2.0.35-26.el7.x86_64
+--> Processing Dependency: libX11.so.6()(64bit) for package: gd-2.0.35-26.el7.x86_64
+--> Running transaction check
+---> Package fontconfig.x86_64 0:2.13.0-4.3.el7 will be installed
+--> Processing Dependency: fontpackages-filesystem for package: fontconfig-2.13.0-4.3.el7.x86_64
+--> Processing Dependency: dejavu-sans-fonts for package: fontconfig-2.13.0-4.3.el7.x86_64
+---> Package libX11.x86_64 0:1.6.7-2.el7 will be installed
+--> Processing Dependency: libX11-common >= 1.6.7-2.el7 for package: libX11-1.6.7-2.el7.x86_64
+--> Processing Dependency: libxcb.so.1()(64bit) for package: libX11-1.6.7-2.el7.x86_64
+---> Package libXpm.x86_64 0:3.5.12-1.el7 will be installed
+---> Package libjpeg-turbo.x86_64 0:1.2.90-8.el7 will be installed
+--> Running transaction check
+---> Package dejavu-sans-fonts.noarch 0:2.33-6.el7 will be installed
+--> Processing Dependency: dejavu-fonts-common = 2.33-6.el7 for package: dejavu-sans-fonts-2.33-6.el7.noarch
+---> Package fontpackages-filesystem.noarch 0:1.44-8.el7 will be installed
+---> Package libX11-common.noarch 0:1.6.7-2.el7 will be installed
+---> Package libxcb.x86_64 0:1.13-1.el7 will be installed
+--> Processing Dependency: libXau.so.6()(64bit) for package: libxcb-1.13-1.el7.x86_64
+--> Running transaction check
+---> Package dejavu-fonts-common.noarch 0:2.33-6.el7 will be installed
+---> Package libXau.x86_64 0:1.0.8-2.1.el7 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+================================================================================
+ Package                        Arch      Version                 Repository
+                                                                           Size
+================================================================================
+Installing:
+ nginx                          x86_64    1:1.16.1-1.el7          epel    562 k
+Installing for dependencies:
+ centos-indexhtml               noarch    7-9.el7.centos          base     92 k
+ centos-logos                   noarch    70.0.6-3.el7.centos     base     21 M
+ dejavu-fonts-common            noarch    2.33-6.el7              base     64 k
+ dejavu-sans-fonts              noarch    2.33-6.el7              base    1.4 M
+ fontconfig                     x86_64    2.13.0-4.3.el7          base    254 k
+ fontpackages-filesystem        noarch    1.44-8.el7              base    9.9 k
+ gd                             x86_64    2.0.35-26.el7           base    146 k
+ gperftools-libs                x86_64    2.6.1-1.el7             base    272 k
+ libX11                         x86_64    1.6.7-2.el7             base    607 k
+ libX11-common                  noarch    1.6.7-2.el7             base    164 k
+ libXau                         x86_64    1.0.8-2.1.el7           base     29 k
+ libXpm                         x86_64    3.5.12-1.el7            base     55 k
+ libjpeg-turbo                  x86_64    1.2.90-8.el7            base    135 k
+ libxcb                         x86_64    1.13-1.el7              base    214 k
+ nginx-all-modules              noarch    1:1.16.1-1.el7          epel     19 k
+ nginx-filesystem               noarch    1:1.16.1-1.el7          epel     21 k
+ nginx-mod-http-image-filter    x86_64    1:1.16.1-1.el7          epel     30 k
+ nginx-mod-http-perl            x86_64    1:1.16.1-1.el7          epel     39 k
+ nginx-mod-http-xslt-filter     x86_64    1:1.16.1-1.el7          epel     29 k
+ nginx-mod-mail                 x86_64    1:1.16.1-1.el7          epel     57 k
+ nginx-mod-stream               x86_64    1:1.16.1-1.el7          epel     84 k
+
+Transaction Summary
+================================================================================
+Install  1 Package (+21 Dependent packages)
+
+Total download size: 26 M
+Installed size: 35 M
+Is this ok [y/d/N]: y
+Downloading packages:
+(1/22): dejavu-fonts-common-2.33-6.el7.noarch.rpm          |  64 kB   00:00     
+(2/22): fontpackages-filesystem-1.44-8.el7.noarch.rpm      | 9.9 kB   00:00     
+(3/22): gd-2.0.35-26.el7.x86_64.rpm                        | 146 kB   00:00     
+(4/22): fontconfig-2.13.0-4.3.el7.x86_64.rpm               | 254 kB   00:00     
+(5/22): gperftools-libs-2.6.1-1.el7.x86_64.rpm             | 272 kB   00:00     
+(7/22): centos-logos-70.0. 4% [-                ]  0.0 B/s | 1.2 MB   --:-- ETA (6/22): libX11-common-1.6.7-2.el7.noarch.rpm               | 164 kB   00:00     
+(7/22): centos-indexhtml-7-9.el7.centos.noarch.rpm         |  92 kB   00:00     
+(8/22): libXau-1.0.8-2.1.el7.x86_64.rpm                    |  29 kB   00:00     
+(9/22): libXpm-3.5.12-1.el7.x86_64.rpm                     |  55 kB   00:00     
+(10/22): libX11-1.6.7-2.el7.x86_64.rpm                     | 607 kB   00:00     
+(11/22): libjpeg-turbo-1.2.90-8.el7.x86_64.rpm             | 135 kB   00:00     
+(12/22): libxcb-1.13-1.el7.x86_64.rpm                      | 214 kB   00:00     
+(14/22): dejavu-sans-fonts 14% [==              ] 3.1 MB/s | 3.6 MB   00:07 ETA (13/22): dejavu-sans-fonts-2.33-6.el7.noarch.rpm           | 1.4 MB   00:00     
+(15/22): nginx-1.16.1-1.el 17% [==-             ] 3.1 MB/s | 4.4 MB   00:06 ETA (14/22): nginx-all-modules-1.16.1-1.el7.noarch.rpm         |  19 kB   00:00     
+(15/22): nginx-filesystem-1.16.1-1.el7.noarch.rpm          |  21 kB   00:00     
+(16/22): nginx-mod-http-xslt-filter-1.16.1-1.el7.x86_64.rp |  29 kB   00:00     
+(17/22): nginx-mod-http-perl-1.16.1-1.el7.x86_64.rpm       |  39 kB   00:00     
+(18/22): nginx-mod-stream-1.16.1-1.el7.x86_64.rpm          |  84 kB   00:00     
+(19/22): nginx-mod-mail-1.16.1-1.el7.x86_64.rpm            |  57 kB   00:00     
+(20/22): nginx-mod-http-image-filter-1.16.1-1.el7.x86_64.r |  30 kB   00:00     
+(22/22): nginx-1.16.1-1.el 27% [====            ] 3.4 MB/s | 7.1 MB   00:05 ETA (21/22): nginx-1.16.1-1.el7.x86_64.rpm                     | 562 kB   00:00     
+(22/22): centos-logos-70.0 34% [=====           ] 3.5 MB/s | 8.7 MB   00:04 ETA (22/22): centos-logos-70.0 40% [======          ] 3.6 MB/s |  10 MB   00:04 ETA (22/22): centos-logos-70.0 47% [=======-        ] 3.8 MB/s |  12 MB   00:03 ETA (22/22): centos-logos-70.0 54% [========-       ] 3.9 MB/s |  14 MB   00:03 ETA (22/22): centos-logos-70.0 60% [=========-      ] 3.9 MB/s |  15 MB   00:02 ETA (22/22): centos-logos-70.0 67% [==========-     ] 4.1 MB/s |  17 MB   00:02 ETA (22/22): centos-logos-70.0 74% [===========-    ] 4.2 MB/s |  19 MB   00:01 ETA (22/22): centos-logos-70.0 80% [============-   ] 4.2 MB/s |  20 MB   00:01 ETA (22/22): centos-logos-70.0 86% [=============-  ] 4.3 MB/s |  22 MB   00:00 ETA (22/22): centos-logos-70.0 92% [==============- ] 4.3 MB/s |  24 MB   00:00 ETA (22/22): centos-logos-70.0 96% [=============== ] 4.2 MB/s |  25 MB   00:00 ETA (22/22): centos-logos-70.0.6-3.el7.centos.noarch.rpm       |  21 MB   00:05     
+--------------------------------------------------------------------------------
+Total                                              4.9 MB/s |  26 MB  00:05     
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : fontpackages-filesystem-1.4 [                            ]  1/22  Installing : fontpackages-filesystem-1.4 [####                        ]  1/22  Installing : fontpackages-filesystem-1.4 [########                    ]  1/22  Installing : fontpackages-filesystem-1.4 [#############               ]  1/22  Installing : fontpackages-filesystem-1.4 [###################         ]  1/22  Installing : fontpackages-filesystem-1.4 [#######################     ]  1/22  Installing : fontpackages-filesystem-1.44-8.el7.noarch                   1/22 
+  Installing : dejavu-fonts-common-2.33-6. [                            ]  2/22  Installing : dejavu-fonts-common-2.33-6. [#                           ]  2/22  Installing : dejavu-fonts-common-2.33-6. [###############             ]  2/22  Installing : dejavu-fonts-common-2.33-6. [################            ]  2/22  Installing : dejavu-fonts-common-2.33-6. [######################      ]  2/22  Installing : dejavu-fonts-common-2.33-6. [########################### ]  2/22  Installing : dejavu-fonts-common-2.33-6.el7.noarch                       2/22 
+  Installing : dejavu-sans-fonts-2.33-6.el [                            ]  3/22  Installing : dejavu-sans-fonts-2.33-6.el [#                           ]  3/22  Installing : dejavu-sans-fonts-2.33-6.el [##                          ]  3/22  Installing : dejavu-sans-fonts-2.33-6.el [###                         ]  3/22  Installing : dejavu-sans-fonts-2.33-6.el [####                        ]  3/22  Installing : dejavu-sans-fonts-2.33-6.el [#####                       ]  3/22  Installing : dejavu-sans-fonts-2.33-6.el [######                      ]  3/22  Installing : dejavu-sans-fonts-2.33-6.el [#######                     ]  3/22  Installing : dejavu-sans-fonts-2.33-6.el [########                    ]  3/22  Installing : dejavu-sans-fonts-2.33-6.el [#########                   ]  3/22  Installing : dejavu-sans-fonts-2.33-6.el [##########                  ]  3/22  Installing : dejavu-sans-fonts-2.33-6.el [###########                 ]  3/22  Installing : dejavu-sans-fonts-2.33-6.el [############                ]  3/22  Installing : dejavu-sans-fonts-2.33-6.el [#############               ]  3/22  Installing : dejavu-sans-fonts-2.33-6.el [##############              ]  3/22  Installing : dejavu-sans-fonts-2.33-6.el [###############             ]  3/22  Installing : dejavu-sans-fonts-2.33-6.el [################            ]  3/22  Installing : dejavu-sans-fonts-2.33-6.el [#################           ]  3/22  Installing : dejavu-sans-fonts-2.33-6.el [##################          ]  3/22  Installing : dejavu-sans-fonts-2.33-6.el [###################         ]  3/22  Installing : dejavu-sans-fonts-2.33-6.el [####################        ]  3/22  Installing : dejavu-sans-fonts-2.33-6.el [#####################       ]  3/22  Installing : dejavu-sans-fonts-2.33-6.el [######################      ]  3/22  Installing : dejavu-sans-fonts-2.33-6.el [#######################     ]  3/22  Installing : dejavu-sans-fonts-2.33-6.el [########################    ]  3/22  Installing : dejavu-sans-fonts-2.33-6.el [#########################   ]  3/22  Installing : dejavu-sans-fonts-2.33-6.el [##########################  ]  3/22  Installing : dejavu-sans-fonts-2.33-6.el [########################### ]  3/22  Installing : dejavu-sans-fonts-2.33-6.el7.noarch                         3/22 
+  Installing : fontconfig-2.13.0-4.3.el7.x [                            ]  4/22  Installing : fontconfig-2.13.0-4.3.el7.x [#                           ]  4/22  Installing : fontconfig-2.13.0-4.3.el7.x [##                          ]  4/22  Installing : fontconfig-2.13.0-4.3.el7.x [###                         ]  4/22  Installing : fontconfig-2.13.0-4.3.el7.x [####                        ]  4/22  Installing : fontconfig-2.13.0-4.3.el7.x [#####                       ]  4/22  Installing : fontconfig-2.13.0-4.3.el7.x [#######                     ]  4/22  Installing : fontconfig-2.13.0-4.3.el7.x [##########                  ]  4/22  Installing : fontconfig-2.13.0-4.3.el7.x [############                ]  4/22  Installing : fontconfig-2.13.0-4.3.el7.x [###############             ]  4/22  Installing : fontconfig-2.13.0-4.3.el7.x [################            ]  4/22  Installing : fontconfig-2.13.0-4.3.el7.x [###################         ]  4/22  Installing : fontconfig-2.13.0-4.3.el7.x [#####################       ]  4/22  Installing : fontconfig-2.13.0-4.3.el7.x [######################      ]  4/22  Installing : fontconfig-2.13.0-4.3.el7.x [#######################     ]  4/22  Installing : fontconfig-2.13.0-4.3.el7.x [########################    ]  4/22  Installing : fontconfig-2.13.0-4.3.el7.x [#########################   ]  4/22  Installing : fontconfig-2.13.0-4.3.el7.x [##########################  ]  4/22  Installing : fontconfig-2.13.0-4.3.el7.x [########################### ]  4/22  Installing : fontconfig-2.13.0-4.3.el7.x86_64                            4/22 
+  Installing : gperftools-libs-2.6.1-1.el7 [                            ]  5/22  Installing : gperftools-libs-2.6.1-1.el7 [#                           ]  5/22  Installing : gperftools-libs-2.6.1-1.el7 [##                          ]  5/22  Installing : gperftools-libs-2.6.1-1.el7 [###                         ]  5/22  Installing : gperftools-libs-2.6.1-1.el7 [#####                       ]  5/22  Installing : gperftools-libs-2.6.1-1.el7 [######                      ]  5/22  Installing : gperftools-libs-2.6.1-1.el7 [#######                     ]  5/22  Installing : gperftools-libs-2.6.1-1.el7 [########                    ]  5/22  Installing : gperftools-libs-2.6.1-1.el7 [#########                   ]  5/22  Installing : gperftools-libs-2.6.1-1.el7 [##########                  ]  5/22  Installing : gperftools-libs-2.6.1-1.el7 [############                ]  5/22  Installing : gperftools-libs-2.6.1-1.el7 [#############               ]  5/22  Installing : gperftools-libs-2.6.1-1.el7 [##############              ]  5/22  Installing : gperftools-libs-2.6.1-1.el7 [###############             ]  5/22  Installing : gperftools-libs-2.6.1-1.el7 [#################           ]  5/22  Installing : gperftools-libs-2.6.1-1.el7 [##################          ]  5/22  Installing : gperftools-libs-2.6.1-1.el7 [###################         ]  5/22  Installing : gperftools-libs-2.6.1-1.el7 [####################        ]  5/22  Installing : gperftools-libs-2.6.1-1.el7 [#####################       ]  5/22  Installing : gperftools-libs-2.6.1-1.el7 [#######################     ]  5/22  Installing : gperftools-libs-2.6.1-1.el7 [########################    ]  5/22  Installing : gperftools-libs-2.6.1-1.el7 [##########################  ]  5/22  Installing : gperftools-libs-2.6.1-1.el7 [########################### ]  5/22  Installing : gperftools-libs-2.6.1-1.el7.x86_64                          5/22 
+  Installing : libXau-1.0.8-2.1.el7.x86_64 [                            ]  6/22  Installing : libXau-1.0.8-2.1.el7.x86_64 [#######                     ]  6/22  Installing : libXau-1.0.8-2.1.el7.x86_64 [########                    ]  6/22  Installing : libXau-1.0.8-2.1.el7.x86_64 [#######################     ]  6/22  Installing : libXau-1.0.8-2.1.el7.x86_64 [########################### ]  6/22  Installing : libXau-1.0.8-2.1.el7.x86_64                                 6/22 
+  Installing : libxcb-1.13-1.el7.x86_64 [                               ]  7/22  Installing : libxcb-1.13-1.el7.x86_64 [#                              ]  7/22  Installing : libxcb-1.13-1.el7.x86_64 [####                           ]  7/22  Installing : libxcb-1.13-1.el7.x86_64 [#####                          ]  7/22  Installing : libxcb-1.13-1.el7.x86_64 [#######                        ]  7/22  Installing : libxcb-1.13-1.el7.x86_64 [########                       ]  7/22  Installing : libxcb-1.13-1.el7.x86_64 [#########                      ]  7/22  Installing : libxcb-1.13-1.el7.x86_64 [##########                     ]  7/22  Installing : libxcb-1.13-1.el7.x86_64 [###########                    ]  7/22  Installing : libxcb-1.13-1.el7.x86_64 [############                   ]  7/22  Installing : libxcb-1.13-1.el7.x86_64 [#############                  ]  7/22  Installing : libxcb-1.13-1.el7.x86_64 [##############                 ]  7/22  Installing : libxcb-1.13-1.el7.x86_64 [###############                ]  7/22  Installing : libxcb-1.13-1.el7.x86_64 [#################              ]  7/22  Installing : libxcb-1.13-1.el7.x86_64 [##################             ]  7/22  Installing : libxcb-1.13-1.el7.x86_64 [###################            ]  7/22  Installing : libxcb-1.13-1.el7.x86_64 [#####################          ]  7/22  Installing : libxcb-1.13-1.el7.x86_64 [######################         ]  7/22  Installing : libxcb-1.13-1.el7.x86_64 [#######################        ]  7/22  Installing : libxcb-1.13-1.el7.x86_64 [########################       ]  7/22  Installing : libxcb-1.13-1.el7.x86_64 [#########################      ]  7/22  Installing : libxcb-1.13-1.el7.x86_64 [###########################    ]  7/22  Installing : libxcb-1.13-1.el7.x86_64 [#############################  ]  7/22  Installing : libxcb-1.13-1.el7.x86_64 [############################## ]  7/22  Installing : libxcb-1.13-1.el7.x86_64                                    7/22 
+  Installing : centos-indexhtml-7-9.el7.ce [                            ]  8/22  Installing : centos-indexhtml-7-9.el7.ce [#                           ]  8/22  Installing : centos-indexhtml-7-9.el7.ce [####################        ]  8/22  Installing : centos-indexhtml-7-9.el7.ce [#########################   ]  8/22  Installing : centos-indexhtml-7-9.el7.ce [##########################  ]  8/22  Installing : centos-indexhtml-7-9.el7.ce [########################### ]  8/22  Installing : centos-indexhtml-7-9.el7.centos.noarch                      8/22 
+  Installing : libjpeg-turbo-1.2.90-8.el7. [                            ]  9/22  Installing : libjpeg-turbo-1.2.90-8.el7. [#####                       ]  9/22  Installing : libjpeg-turbo-1.2.90-8.el7. [##########                  ]  9/22  Installing : libjpeg-turbo-1.2.90-8.el7. [###############             ]  9/22  Installing : libjpeg-turbo-1.2.90-8.el7. [####################        ]  9/22  Installing : libjpeg-turbo-1.2.90-8.el7. [######################      ]  9/22  Installing : libjpeg-turbo-1.2.90-8.el7. [########################    ]  9/22  Installing : libjpeg-turbo-1.2.90-8.el7. [#########################   ]  9/22  Installing : libjpeg-turbo-1.2.90-8.el7. [##########################  ]  9/22  Installing : libjpeg-turbo-1.2.90-8.el7. [########################### ]  9/22  Installing : libjpeg-turbo-1.2.90-8.el7.x86_64                           9/22 
+  Installing : libX11-common-1.6.7-2.el7.n [                            ] 10/22  Installing : libX11-common-1.6.7-2.el7.n [#                           ] 10/22  Installing : libX11-common-1.6.7-2.el7.n [###                         ] 10/22  Installing : libX11-common-1.6.7-2.el7.n [####                        ] 10/22  Installing : libX11-common-1.6.7-2.el7.n [#####                       ] 10/22  Installing : libX11-common-1.6.7-2.el7.n [#######                     ] 10/22  Installing : libX11-common-1.6.7-2.el7.n [########                    ] 10/22  Installing : libX11-common-1.6.7-2.el7.n [#########                   ] 10/22  Installing : libX11-common-1.6.7-2.el7.n [###########                 ] 10/22  Installing : libX11-common-1.6.7-2.el7.n [############                ] 10/22  Installing : libX11-common-1.6.7-2.el7.n [#############               ] 10/22  Installing : libX11-common-1.6.7-2.el7.n [###############             ] 10/22  Installing : libX11-common-1.6.7-2.el7.n [################            ] 10/22  Installing : libX11-common-1.6.7-2.el7.n [#################           ] 10/22  Installing : libX11-common-1.6.7-2.el7.n [##################          ] 10/22  Installing : libX11-common-1.6.7-2.el7.n [###################         ] 10/22  Installing : libX11-common-1.6.7-2.el7.n [####################        ] 10/22  Installing : libX11-common-1.6.7-2.el7.n [#####################       ] 10/22  Installing : libX11-common-1.6.7-2.el7.n [######################      ] 10/22  Installing : libX11-common-1.6.7-2.el7.n [#######################     ] 10/22  Installing : libX11-common-1.6.7-2.el7.n [########################    ] 10/22  Installing : libX11-common-1.6.7-2.el7.n [#########################   ] 10/22  Installing : libX11-common-1.6.7-2.el7.n [##########################  ] 10/22  Installing : libX11-common-1.6.7-2.el7.n [########################### ] 10/22  Installing : libX11-common-1.6.7-2.el7.noarch                           10/22 
+  Installing : libX11-1.6.7-2.el7.x86_64 [                              ] 11/22  Installing : libX11-1.6.7-2.el7.x86_64 [#                             ] 11/22  Installing : libX11-1.6.7-2.el7.x86_64 [###                           ] 11/22  Installing : libX11-1.6.7-2.el7.x86_64 [####                          ] 11/22  Installing : libX11-1.6.7-2.el7.x86_64 [######                        ] 11/22  Installing : libX11-1.6.7-2.el7.x86_64 [#######                       ] 11/22  Installing : libX11-1.6.7-2.el7.x86_64 [#########                     ] 11/22  Installing : libX11-1.6.7-2.el7.x86_64 [##########                    ] 11/22  Installing : libX11-1.6.7-2.el7.x86_64 [############                  ] 11/22  Installing : libX11-1.6.7-2.el7.x86_64 [#############                 ] 11/22  Installing : libX11-1.6.7-2.el7.x86_64 [##############                ] 11/22  Installing : libX11-1.6.7-2.el7.x86_64 [################              ] 11/22  Installing : libX11-1.6.7-2.el7.x86_64 [#################             ] 11/22  Installing : libX11-1.6.7-2.el7.x86_64 [###################           ] 11/22  Installing : libX11-1.6.7-2.el7.x86_64 [####################          ] 11/22  Installing : libX11-1.6.7-2.el7.x86_64 [######################        ] 11/22  Installing : libX11-1.6.7-2.el7.x86_64 [#######################       ] 11/22  Installing : libX11-1.6.7-2.el7.x86_64 [#########################     ] 11/22  Installing : libX11-1.6.7-2.el7.x86_64 [##########################    ] 11/22  Installing : libX11-1.6.7-2.el7.x86_64 [############################  ] 11/22  Installing : libX11-1.6.7-2.el7.x86_64 [############################# ] 11/22  Installing : libX11-1.6.7-2.el7.x86_64                                  11/22 
+  Installing : libXpm-3.5.12-1.el7.x86_64 [                             ] 12/22  Installing : libXpm-3.5.12-1.el7.x86_64 [###############              ] 12/22  Installing : libXpm-3.5.12-1.el7.x86_64 [##################           ] 12/22  Installing : libXpm-3.5.12-1.el7.x86_64 [###################          ] 12/22  Installing : libXpm-3.5.12-1.el7.x86_64 [############################ ] 12/22  Installing : libXpm-3.5.12-1.el7.x86_64                                 12/22 
+  Installing : gd-2.0.35-26.el7.x86_64 [                                ] 13/22  Installing : gd-2.0.35-26.el7.x86_64 [###                             ] 13/22  Installing : gd-2.0.35-26.el7.x86_64 [#######                         ] 13/22  Installing : gd-2.0.35-26.el7.x86_64 [###########                     ] 13/22  Installing : gd-2.0.35-26.el7.x86_64 [###############                 ] 13/22  Installing : gd-2.0.35-26.el7.x86_64 [################                ] 13/22  Installing : gd-2.0.35-26.el7.x86_64 [#################               ] 13/22  Installing : gd-2.0.35-26.el7.x86_64 [#####################           ] 13/22  Installing : gd-2.0.35-26.el7.x86_64 [########################        ] 13/22  Installing : gd-2.0.35-26.el7.x86_64 [############################    ] 13/22  Installing : gd-2.0.35-26.el7.x86_64 [############################### ] 13/22  Installing : gd-2.0.35-26.el7.x86_64                                    13/22 
+  Installing : centos-logos-70.0.6-3.el7.c [                            ] 14/22  Installing : centos-logos-70.0.6-3.el7.c [#                           ] 14/22  Installing : centos-logos-70.0.6-3.el7.c [##                          ] 14/22  Installing : centos-logos-70.0.6-3.el7.c [###                         ] 14/22  Installing : centos-logos-70.0.6-3.el7.c [####                        ] 14/22  Installing : centos-logos-70.0.6-3.el7.c [#####                       ] 14/22  Installing : centos-logos-70.0.6-3.el7.c [######                      ] 14/22  Installing : centos-logos-70.0.6-3.el7.c [#######                     ] 14/22  Installing : centos-logos-70.0.6-3.el7.c [########                    ] 14/22  Installing : centos-logos-70.0.6-3.el7.c [#########                   ] 14/22  Installing : centos-logos-70.0.6-3.el7.c [##########                  ] 14/22  Installing : centos-logos-70.0.6-3.el7.c [###########                 ] 14/22  Installing : centos-logos-70.0.6-3.el7.c [############                ] 14/22  Installing : centos-logos-70.0.6-3.el7.c [#############               ] 14/22  Installing : centos-logos-70.0.6-3.el7.c [##############              ] 14/22  Installing : centos-logos-70.0.6-3.el7.c [###############             ] 14/22  Installing : centos-logos-70.0.6-3.el7.c [################            ] 14/22  Installing : centos-logos-70.0.6-3.el7.c [#################           ] 14/22  Installing : centos-logos-70.0.6-3.el7.c [##################          ] 14/22  Installing : centos-logos-70.0.6-3.el7.c [###################         ] 14/22  Installing : centos-logos-70.0.6-3.el7.c [####################        ] 14/22  Installing : centos-logos-70.0.6-3.el7.c [#####################       ] 14/22  Installing : centos-logos-70.0.6-3.el7.c [######################      ] 14/22  Installing : centos-logos-70.0.6-3.el7.c [#######################     ] 14/22  Installing : centos-logos-70.0.6-3.el7.c [########################    ] 14/22  Installing : centos-logos-70.0.6-3.el7.c [#########################   ] 14/22  Installing : centos-logos-70.0.6-3.el7.c [##########################  ] 14/22  Installing : centos-logos-70.0.6-3.el7.c [########################### ] 14/22  Installing : centos-logos-70.0.6-3.el7.centos.noarch                    14/22 
+  Installing : 1:nginx-filesystem-1.16.1-1 [                            ] 15/22  Installing : 1:nginx-filesystem-1.16.1-1 [###                         ] 15/22  Installing : 1:nginx-filesystem-1.16.1-1 [######                      ] 15/22  Installing : 1:nginx-filesystem-1.16.1-1 [##########                  ] 15/22  Installing : 1:nginx-filesystem-1.16.1-1 [#############               ] 15/22  Installing : 1:nginx-filesystem-1.16.1-1 [#################           ] 15/22  Installing : 1:nginx-filesystem-1.16.1-1 [#####################       ] 15/22  Installing : 1:nginx-filesystem-1.16.1-1 [########################    ] 15/22  Installing : 1:nginx-filesystem-1.16.1-1.el7.noarch                     15/22 
+  Installing : 1:nginx-mod-mail-1.16.1-1.e [                            ] 16/22  Installing : 1:nginx-mod-mail-1.16.1-1.e [#################           ] 16/22  Installing : 1:nginx-mod-mail-1.16.1-1.e [########################### ] 16/22  Installing : 1:nginx-mod-mail-1.16.1-1.el7.x86_64                       16/22 
+  Installing : 1:nginx-mod-http-perl-1.16. [                            ] 17/22  Installing : 1:nginx-mod-http-perl-1.16. [############                ] 17/22  Installing : 1:nginx-mod-http-perl-1.16. [##########################  ] 17/22  Installing : 1:nginx-mod-http-perl-1.16. [########################### ] 17/22  Installing : 1:nginx-mod-http-perl-1.16.1-1.el7.x86_64                  17/22 
+  Installing : 1:nginx-mod-stream-1.16.1-1 [                            ] 18/22  Installing : 1:nginx-mod-stream-1.16.1-1 [##########                  ] 18/22  Installing : 1:nginx-mod-stream-1.16.1-1 [####################        ] 18/22  Installing : 1:nginx-mod-stream-1.16.1-1 [########################### ] 18/22  Installing : 1:nginx-mod-stream-1.16.1-1.el7.x86_64                     18/22 
+  Installing : 1:nginx-mod-http-xslt-filte [                            ] 19/22  Installing : 1:nginx-mod-http-xslt-filte [########################### ] 19/22  Installing : 1:nginx-mod-http-xslt-filter-1.16.1-1.el7.x86_64           19/22 
+  Installing : 1:nginx-1.16.1-1.el7.x86_64 [                            ] 20/22  Installing : 1:nginx-1.16.1-1.el7.x86_64 [#                           ] 20/22  Installing : 1:nginx-1.16.1-1.el7.x86_64 [##                          ] 20/22  Installing : 1:nginx-1.16.1-1.el7.x86_64 [###                         ] 20/22  Installing : 1:nginx-1.16.1-1.el7.x86_64 [####                        ] 20/22  Installing : 1:nginx-1.16.1-1.el7.x86_64 [#####                       ] 20/22  Installing : 1:nginx-1.16.1-1.el7.x86_64 [#######                     ] 20/22  Installing : 1:nginx-1.16.1-1.el7.x86_64 [########                    ] 20/22  Installing : 1:nginx-1.16.1-1.el7.x86_64 [##########                  ] 20/22  Installing : 1:nginx-1.16.1-1.el7.x86_64 [###########                 ] 20/22  Installing : 1:nginx-1.16.1-1.el7.x86_64 [############                ] 20/22  Installing : 1:nginx-1.16.1-1.el7.x86_64 [#############               ] 20/22  Installing : 1:nginx-1.16.1-1.el7.x86_64 [##############              ] 20/22  Installing : 1:nginx-1.16.1-1.el7.x86_64 [###############             ] 20/22  Installing : 1:nginx-1.16.1-1.el7.x86_64 [################            ] 20/22  Installing : 1:nginx-1.16.1-1.el7.x86_64 [#################           ] 20/22  Installing : 1:nginx-1.16.1-1.el7.x86_64 [##################          ] 20/22  Installing : 1:nginx-1.16.1-1.el7.x86_64 [###################         ] 20/22  Installing : 1:nginx-1.16.1-1.el7.x86_64 [####################        ] 20/22  Installing : 1:nginx-1.16.1-1.el7.x86_64 [#####################       ] 20/22  Installing : 1:nginx-1.16.1-1.el7.x86_64 [######################      ] 20/22  Installing : 1:nginx-1.16.1-1.el7.x86_64 [#######################     ] 20/22  Installing : 1:nginx-1.16.1-1.el7.x86_64 [########################    ] 20/22  Installing : 1:nginx-1.16.1-1.el7.x86_64 [#########################   ] 20/22  Installing : 1:nginx-1.16.1-1.el7.x86_64 [##########################  ] 20/22  Installing : 1:nginx-1.16.1-1.el7.x86_64 [########################### ] 20/22  Installing : 1:nginx-1.16.1-1.el7.x86_64                                20/22 
+  Installing : 1:nginx-mod-http-image-filt [                            ] 21/22  Installing : 1:nginx-mod-http-image-filt [########################### ] 21/22  Installing : 1:nginx-mod-http-image-filter-1.16.1-1.el7.x86_64          21/22 
+  Installing : 1:nginx-all-modules-1.16.1- [                            ] 22/22  Installing : 1:nginx-all-modules-1.16.1-1.el7.noarch                    22/22 
+  Verifying  : fontconfig-2.13.0-4.3.el7.x86_64                            1/22 
+  Verifying  : 1:nginx-filesystem-1.16.1-1.el7.noarch                      2/22 
+  Verifying  : 1:nginx-mod-mail-1.16.1-1.el7.x86_64                        3/22 
+  Verifying  : 1:nginx-mod-http-perl-1.16.1-1.el7.x86_64                   4/22 
+  Verifying  : fontpackages-filesystem-1.44-8.el7.noarch                   5/22 
+  Verifying  : centos-logos-70.0.6-3.el7.centos.noarch                     6/22 
+  Verifying  : dejavu-fonts-common-2.33-6.el7.noarch                       7/22 
+  Verifying  : libX11-1.6.7-2.el7.x86_64                                   8/22 
+  Verifying  : libX11-common-1.6.7-2.el7.noarch                            9/22 
+  Verifying  : libxcb-1.13-1.el7.x86_64                                   10/22 
+  Verifying  : libXpm-3.5.12-1.el7.x86_64                                 11/22 
+  Verifying  : 1:nginx-mod-stream-1.16.1-1.el7.x86_64                     12/22 
+  Verifying  : dejavu-sans-fonts-2.33-6.el7.noarch                        13/22 
+  Verifying  : 1:nginx-1.16.1-1.el7.x86_64                                14/22 
+  Verifying  : libjpeg-turbo-1.2.90-8.el7.x86_64                          15/22 
+  Verifying  : 1:nginx-all-modules-1.16.1-1.el7.noarch                    16/22 
+  Verifying  : 1:nginx-mod-http-xslt-filter-1.16.1-1.el7.x86_64           17/22 
+  Verifying  : centos-indexhtml-7-9.el7.centos.noarch                     18/22 
+  Verifying  : 1:nginx-mod-http-image-filter-1.16.1-1.el7.x86_64          19/22 
+  Verifying  : libXau-1.0.8-2.1.el7.x86_64                                20/22 
+  Verifying  : gperftools-libs-2.6.1-1.el7.x86_64                         21/22 
+  Verifying  : gd-2.0.35-26.el7.x86_64                                    22/22 
+
+Installed:
+  nginx.x86_64 1:1.16.1-1.el7                                                   
+
+Dependency Installed:
+  centos-indexhtml.noarch 0:7-9.el7.centos                                      
+  centos-logos.noarch 0:70.0.6-3.el7.centos                                     
+  dejavu-fonts-common.noarch 0:2.33-6.el7                                       
+  dejavu-sans-fonts.noarch 0:2.33-6.el7                                         
+  fontconfig.x86_64 0:2.13.0-4.3.el7                                            
+  fontpackages-filesystem.noarch 0:1.44-8.el7                                   
+  gd.x86_64 0:2.0.35-26.el7                                                     
+  gperftools-libs.x86_64 0:2.6.1-1.el7                                          
+  libX11.x86_64 0:1.6.7-2.el7                                                   
+  libX11-common.noarch 0:1.6.7-2.el7                                            
+  libXau.x86_64 0:1.0.8-2.1.el7                                                 
+  libXpm.x86_64 0:3.5.12-1.el7                                                  
+  libjpeg-turbo.x86_64 0:1.2.90-8.el7                                           
+  libxcb.x86_64 0:1.13-1.el7                                                    
+  nginx-all-modules.noarch 1:1.16.1-1.el7                                       
+  nginx-filesystem.noarch 1:1.16.1-1.el7                                        
+  nginx-mod-http-image-filter.x86_64 1:1.16.1-1.el7                             
+  nginx-mod-http-perl.x86_64 1:1.16.1-1.el7                                     
+  nginx-mod-http-xslt-filter.x86_64 1:1.16.1-1.el7                              
+  nginx-mod-mail.x86_64 1:1.16.1-1.el7                                          
+  nginx-mod-stream.x86_64 1:1.16.1-1.el7                                        
+
+Complete!
+]0;root@web:/home/vagrant[root@web vagrant]# 
+]0;root@web:/home/vagrant[root@web vagrant]# 
+]0;root@web:/home/vagrant[root@web vagrant]# 
+]0;root@web:/home/vagrant[root@web vagrant]# мш [K[K[Kvi /etc/rsyslog.conf
+[?1049h[?1h=[1;24r[?12;25h[?12l[?25h[27m[m[H[2J[?25l[24;1H"/etc/rsyslog.conf" 91L, 3232C[1;1H# rsyslog configuration file
+
+# For more information see /usr/share/doc/rsyslog-*/rsyslog_conf.html
+# If you experience problems, see http://www.rsyslog.com/doc/troubleshoot.html
+
+#### MODULES ####
+
+# The imjournal module bellow is now used as a message source instead of imuxsocc[9;1Hk.
+$ModLoad imuxsock # provides support for local system logging (e.g. via logger cc[11;1Hommand)
+$ModLoad imjournal # provides access to the systemd journal
+#$ModLoad imklog # reads kernel messages (the same are read from journald)
+#$ModLoad immark  # provides --MARK-- message capability
+
+# Provides UDP syslog reception
+#$ModLoad imudp
+#$UDPServerRun 514
+
+# Provides TCP syslog reception
+#$ModLoad imtcp
+#$InputTCPServerRun 514[1;1H[?12l[?25h
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[?25l[1;23r[23;1H
+[1;24r[24;1H[K[23;1H[?12l[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H#### GLOBAL DIRECTIVES ####[?12l[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H[?12l[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H# Where to place auxiliary files[?12l[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H$WorkDirectory /var/lib/rsyslog[?12l[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H[?12l[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H# Use default timestamp format[?12l[?25h[?25l[1;23r[1;1H[2M[1;24r[22;1H$ActionFileDefaultTemplate RSYSLOG_TraditionalFileFormat[?12l[?25h
+[?25l[1;23r[1;1H[2M[1;24r[22;1H# File syncing capability is disabled by default. This feature is usually not ree[23;1Hquired,[22;1H[?12l[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H# not useful and an extreme performance hit[?12l[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H#$ActionFileEnableSync on[?12l[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H[?12l[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H# Include all config files in /etc/rsyslog.d/[?12l[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H$IncludeConfig /etc/rsyslog.d/*.conf[?12l[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H[?12l[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H# Turn off message reception via local log socket;[?12l[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H# local messages are retrieved through imjournal now.[?12l[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H$OmitLocalLogging on[?12l[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H[?12l[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H# File to store the position in the journal[?12l[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H$IMJournalStateFile imjournal.state[?12l[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H[?12l[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H[?12l[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H#### RULES ####[?12l[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H[?12l[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H# Log all kernel messages to the console.[?12l[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H# Logging much else clutters up the screen.[?12l[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H#kern.*[49C/dev/console[?12l[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H[?12l[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H# Log anything (except mail) of level info or higher.[?12l[?25h[?25l[1;23r[1;1H[2M[1;24r[22;1H# Don't log private authentication messages!
+*.info;mail.none;authpriv.none;cron.none[16C/var/log/messages[22;1H[?12l[?25h
+[?25l[1;23r[23;1H
+[1;24r[23;1H[?12l[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H# The authpriv file has restricted access.[?12l[?25h[?25l[1;23r[23;1H
+[1;24r[23;1Hauthpriv.*[46C/var/log/secure[?12l[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H[?12l[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H# Log all the mail messages in one place.[?12l[?25h[?25l[1;23r[23;1H
+[1;24r[23;1Hmail.*[50C-/var/log/maillog[?12l[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H[?12l[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H[?12l[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H# Log cron stuff[?12l[?25h[?25l[1;23r[23;1H
+[1;24r[23;1Hcron.*[50C/var/log/cron[?12l[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H[?12l[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H# Everybody gets emergency messages[?12l[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H*.emerg[49C:omusrmsg:*[?12l[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H[?12l[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H# Save news errors of level crit and higher in a special file.[?12l[?25h[?25l[1;23r[23;1H
+[1;24r[23;1Huucp,news.crit[42C/var/log/spooler[?12l[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H[?12l[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H# Save boot messages also to boot.log[?12l[?25h[?25l[1;23r[23;1H
+[1;24r[23;1Hlocal7.*[48C/var/log/boot.log[?12l[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H[?12l[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H[?12l[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H# ### begin forwarding rule ###[?12l[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H# The statement between the begin ... end define a SINGLE forwarding[?12l[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H# rule. They belong together, do NOT split them. If you create multiple[?12l[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H# forwarding rules, duplicate the whole block![?12l[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H# Remote Logging (we use TCP for reliable delivery)[?12l[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H#[?12l[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H# An on-disk queue is created for this action. If the remote host is[?12l[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H# down, messages are spooled to disk and sent when it is up again.[?12l[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H#$ActionQueueFileName fwdRule1 # unique name prefix for spool files[?12l[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H#$ActionQueueMaxDiskSpace 1g   # 1gb space limit (use as much as possible)[?12l[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H#$ActionQueueSaveOnShutdown on # save messages to disk on shutdown[?12l[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H#$ActionQueueType LinkedList   # run asynchronously[?12l[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H#$ActionResumeRetryCount -1    # infinite retries if host is down[?12l[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H# remote host is: name/ip:port, e.g. 192.168.0.1:514, port optional[?12l[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H#*.* @@remote-host:514[?12l[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H# ### end of the forwarding rule ###[?12l[?25h# ### end of the forwarding rul[22;22H[21;32H[20;32H[19;32H[18;32H[17;32H[16;32H[15;32H[14;32H[13;1H[12;32H[11;32H[10;32H[9;32H[8;31H[7;1H[6;1H[5;32H[4;32H[3;1H[2;32H[1;32H[?25l[1;23r[1;1H[L[1;24r[1;1H[?12l[?25h[?25l[1;23r[1;1H[L[1;24r[1;1H*.emerg[49C:omusrmsg:*[1;32H[?12l[?25h[?25l[1;23r[1;1H[L[1;24r[1;1H# Everybody gets emergency messages[?12l[?25h[?25l[1;23r[1;1H[L[1;24r[1;1H[?12l[?25h[?25l[1;23r[1;1H[L[1;24r[1;1Hcron.*[50C/var/log/cron[1;32H[?12l[?25h[?25l[1;23r[1;1H[L[1;24r[1;1H# Log cron stuff[?12l[?25h[?25l[1;23r[1;1H[L[1;24r[1;1H[?12l[?25h[?25l[1;23r[1;1H[L[1;24r[1;1H[?12l[?25h[?25l[1;23r[1;1H[L[1;24r[1;1Hmail.*[50C-/var/log/maillog[1;32H[?12l[?25h[?25l[1;23r[1;1H[L[1;24r[1;1H# Log all the mail messages in one place.[1;32H[?12l[?25h[?25l[1;23r[1;1H[L[1;24r[1;1H[?12l[?25h[?25l[1;23r[1;1H[L[1;24r[1;1Hauthpriv.*[46C/var/log/secure[1;32H[?12l[?25h[?25l[1;23r[1;1H[L[1;24r[1;1H# The authpriv file has restricted access.[1;32H[?12l[?25h[?25l[1;23r[1;1H[L[1;24r[1;1H[?12l[?25h[?25l[1;23r[1;1H[L[1;24r[1;1H*.info;mail.none;authpriv.none;cron.none[16C/var/log/messages[1;32H[?12l[?25h[?25l[1;23r[1;1H[L[1;24r[1;1H# Don't log private authentication messages![1;32H[?12l[?25h[?25l[1;23r[1;1H[L[1;24r[1;1H# Log anything (except mail) of level info or higher.[1;32H[?12l[?25h[?25l[1;23r[1;1H[L[1;24r[1;1H[?12l[?25h[?25l[1;23r[1;1H[L[1;24r[1;1H#kern.*[49C/dev/console[1;32H[?12l[?25h[?25l[1;23r[1;1H[L[1;24r[1;1H# Logging much else clutters up the screen.[1;32H[?12l[?25h[?25l[1;23r[1;1H[L[1;24r[1;1H# Log all kernel messages to the console.[1;32H[?12l[?25h[?25l[1;23r[1;1H[L[1;24r[1;1H[?12l[?25h[?25l[1;23r[1;1H[L[1;24r[1;1H#### RULES ####[?12l[?25h[?25l[1;23r[1;1H[L[1;24r[1;1H[?12l[?25h[?25l[1;23r[1;1H[L[1;24r[1;1H[?12l[?25h[?25l[1;23r[1;1H[L[1;24r[1;1H$IMJournalStateFile imjournal.state[?12l[?25h
+
+[4;15H
+[6;32H[7;32H[8;32H
+[10;32H[11;32H[12;32H
+[14;32H[15;32H
+[17;32H[18;32H
+
+[21;16H[22;32H
+[?25l[1;23r[23;1H
+[1;24r[23;1H# Everybody gets emergency messages[?12l[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H*.emerg[49C:omusrmsg:*[23;32H[?12l[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H[?12l[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H# Save news errors of level crit and higher in a special file.[23;32H[?12l[?25h[?25l[1;23r[23;1H
+[1;24r[23;1Huucp,news.crit[42C/var/log/spooler[23;32H[?12l[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H[?12l[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H# Save boot messages also to boot.log[?12l[?25h[?25l[1;23r[23;1H
+[1;24r[23;1Hlocal7.*[48C/var/log/boot.log[23;32H[?12l[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H[?12l[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H[?12l[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H# ### begin forwarding rule ###[?12l[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H# The statement between the begin ... end define a SINGLE forwarding[23;32H[?12l[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H# rule. They belong together, do NOT split them. If you create multiple[23;32H[?12l[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H# forwarding rules, duplicate the whole block![23;32H[?12l[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H# Remote Logging (we use TCP for reliable delivery)[23;32H[?12l[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H#[?12l[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H# An on-disk queue is created for this action. If the remote host is[23;32H[?12l[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H# down, messages are spooled to disk and sent when it is up again.[23;32H[?12l[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H#$ActionQueueFileName fwdRule1 # unique name prefix for spool files[23;32H[?12l[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H#$ActionQueueMaxDiskSpace 1g   # 1gb space limit (use as much as possible)[23;32H[?12l[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H#$ActionQueueSaveOnShutdown on # save messages to disk on shutdown[23;32H[?12l[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H#$ActionQueueType LinkedList   # run asynchronously[23;32H[?12l[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H#$ActionResumeRetryCount -1    # infinite retries if host is down[23;32H[?12l[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H# remote host is: name/ip:port, e.g. 192.168.0.1:514, port optional[23;32H[?12l[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H#*.* @@remote-host:514[?12l[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H# ### end of the forwarding rule ###[?12l[?25h[22;22H[?25l
+
+[1m-- INSERT --[22;22H[?12l[?25h[?25l[m[22;22H[K[23;1H4[23;3H[K[23;1H[?12l[?25h[?25l[22;22H4
+# ### end of the forwarding rule ###[22;22H[?12l[?25h4[?25l[23;1H[K[23;1H[?12l[?25h[20;1H
+
+
+[?25l[1;23r[23;1H
+[1;24r[23;1H# ### end of the forwarding rule ###[?12l[?25h[22;1H[?25l[23;1H[K[23;1H[?12l[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H[?12l[?25h[22;1H[?25l*[?12l[?25h[?25l.[?12l[?25h[?25lc[?12l[?25h[?25lr[?12l[?25h[?25li[?12l[?25h[?25lt[?12l[?25h[?25l [?12l[?25h[?25l192.168.100.11[?12l[?25h[?25l:[?12l[?25h[?25l5[?12l[?25h[?25l1[?12l[?25h[?25l4[?12l[?25h[24;1H[K[22;25H[?25l[?12l[?25h[?25l
+
+:[?12l[?25hwq[?25l"/etc/rsyslog.conf" 94L, 3260C written
+[?1l>[?12l[?25h[?1049l]0;root@web:/home/vagrant[root@web vagrant]# [K[root@web vagrant]# [K[root@web vagrant]# [K[root@web vagrant]# [K[root@web vagrant]# [K[root@web vagrant]# vi /etc/rsyslog.conf
+[?1049h[?1h=[1;25r[?12;25h[?12l[?25h[27m[m[H[2J[?25l[25;1H"/etc/rsyslog.conf" 94L, 3260C[1;1H# rsyslog configuration file
+
+# For more information see /usr/share/doc/rsyslog-*/rsyslog_conf.html
+# If you experience problems, see http://www.rsyslog.com/doc/troubleshoot.html
+
+#### MODULES ####
+
+# The imjournal module bellow is now used as a message source instead of imuxsock.
+$ModLoad imuxsock # provides support for local system logging (e.g. via logger command)
+$ModLoad imjournal # provides access to the systemd journal
+#$ModLoad imklog # reads kernel messages (the same are read from journald)
+#$ModLoad immark  # provides --MARK-- message capability
+
+# Provides UDP syslog reception
+#$ModLoad imudp
+#$UDPServerRun 514
+
+# Provides TCP syslog reception
+#$ModLoad imtcp
+#$InputTCPServerRun 514
+
+
+#### GLOBAL DIRECTIVES ####[1;1H[?12l[?25h
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[?25l[1;24r[24;1H
+[1;25r[24;1H# Where to place auxiliary files[25;1H[K[24;1H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H$WorkDirectory /var/lib/rsyslog[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H# Use default timestamp format[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H$ActionFileDefaultTemplate RSYSLOG_TraditionalFileFormat[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H# File syncing capability is disabled by default. This feature is usually not required,[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H# not useful and an extreme performance hit[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H#$ActionFileEnableSync on[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H# Include all config files in /etc/rsyslog.d/[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H$IncludeConfig /etc/rsyslog.d/*.conf[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H# Turn off message reception via local log socket;[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H# local messages are retrieved through imjournal now.[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H$OmitLocalLogging on[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H# File to store the position in the journal[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H$IMJournalStateFile imjournal.state[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H#### RULES ####[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H# Log all kernel messages to the console.[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H# Logging much else clutters up the screen.[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H#kern.*[49C/dev/console[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H# Log anything (except mail) of level info or higher.[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H# Don't log private authentication messages![?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H*.info;mail.none;authpriv.none;cron.none[16C/var/log/messages[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H# The authpriv file has restricted access.[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1Hauthpriv.*[46C/var/log/secure[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H# Log all the mail messages in one place.[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1Hmail.*[50C-/var/log/maillog[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H# Log cron stuff[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1Hcron.*[50C/var/log/cron[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H# Everybody gets emergency messages[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H*.emerg[49C:omusrmsg:*[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H# Save news errors of level crit and higher in a special file.[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1Huucp,news.crit[42C/var/log/spooler[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H# Save boot messages also to boot.log[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1Hlocal7.*[48C/var/log/boot.log[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H# ### begin forwarding rule ###[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H# The statement between the begin ... end define a SINGLE forwarding[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H# rule. They belong together, do NOT split them. If you create multiple[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H# forwarding rules, duplicate the whole block![?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H# Remote Logging (we use TCP for reliable delivery)[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H#[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H# An on-disk queue is created for this action. If the remote host is[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H# down, messages are spooled to disk and sent when it is up again.[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H#$ActionQueueFileName fwdRule1 # unique name prefix for spool files[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H#$ActionQueueMaxDiskSpace 1g   # 1gb space limit (use as much as possible)[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H#$ActionQueueSaveOnShutdown on # save messages to disk on shutdown[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H#$ActionQueueType LinkedList   # run asynchronously[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H#$ActionResumeRetryCount -1    # infinite retries if host is down[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H# remote host is: name/ip:port, e.g. 192.168.0.1:514, port optional[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H#*.* @@remote-host:514[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H*.crit 192.168.100.11:514[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H# ### end of the forwarding rule ###[?12l[?25h[?25l
+:[?12l[?25hq[?25l[25;1H[K[25;1H[?1l>[?12l[?25h[?1049l]0;root@web:/home/vagrant[root@web vagrant]# systemctl restr[Kart rsyslog
+]0;root@web:/home/vagrant[root@web vagrant]# 
+]0;root@web:/home/vagrant[root@web vagrant]# 
+]0;root@web:/home/vagrant[root@web vagrant]# мш[K[Kvi /etc/nginx/nginx.conf
+[?1049h[?1h=[1;25r[?12;25h[?12l[?25h[27m[m[H[2J[?25l[25;1H"/etc/nginx/nginx.conf" 90L, 2471C[1;1H# For more information on configuration, see:
+#   * Official English Documentation: http://nginx.org/en/docs/
+#   * Official Russian Documentation: http://nginx.org/ru/docs/
+
+user nginx;
+worker_processes auto;
+error_log /var/log/nginx/error.log;
+pid /run/nginx.pid;
+
+# Load dynamic modules. See /usr/share/doc/nginx/README.dynamic.
+include /usr/share/nginx/modules/*.conf;
+
+events {
+    worker_connections 1024;
+}
+
+http {
+    log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '[19;23H'$status $body_bytes_sent "$http_referer" '[20;23H'"$http_user_agent" "$http_x_forwarded_for"';[22;5Haccess_log  /var/log/nginx/access.log  main;[24;5Hsendfile[12Con;[1;1H[?12l[?25h
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[?25l[1;24r[24;1H
+[1;25r[24;5Htcp_nopush[10Con;[25;1H[K[24;1H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;5Htcp_nodelay[9Con;[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;5Hkeepalive_timeout   65;[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;5Htypes_hash_max_size 2048;[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;5Hinclude[13C/etc/nginx/mime.types;[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;5Hdefault_type[8Capplication/octet-stream;[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;5H# Load modular configuration files from the /etc/nginx/conf.d directory.[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;5H# See http://nginx.org/en/docs/ngx_core_module.html#include[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;5H# for more information.[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;5Hinclude /etc/nginx/conf.d/*.conf;[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;5Hserver {[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;9Hlisten[7C80 default_server;[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;9Hlisten[7C[::]:80 default_server;[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;9Hserver_name  _;[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;9Hroot[9C/usr/share/nginx/html;[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;9H# Load configuration files for the default server block.[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;9Hinclude /etc/nginx/default.d/*.conf;[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;9Hlocation / {[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;9H}[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;9Herror_page 404 /404.html;[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;13Hlocation = /40x.html {[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;9H}[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;9Herror_page 500 502 503 504 /50x.html;[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;13Hlocation = /50x.html {[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;9H}[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;5H}[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H# Settings for a TLS enabled server.[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H#[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H#    server {[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H#[8Clisten[7C443 ssl http2 default_server;[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H#[8Clisten[7C[::]:443 ssl http2 default_server;[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H#[8Cserver_name  _;[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H#[8Croot[9C/usr/share/nginx/html;[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H#[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H#[8Cssl_certificate "/etc/pki/nginx/server.crt";[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H#[8Cssl_certificate_key "/etc/pki/nginx/private/server.key";[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H#[8Cssl_session_cache shared:SSL:1m;[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H#[8Cssl_session_timeout  10m;[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H#[8Cssl_ciphers HIGH:!aNULL:!MD5;[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H#[8Cssl_prefer_server_ciphers on;[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H#[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H#[8C# Load configuration files for the default server block.[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H#[8Cinclude /etc/nginx/default.d/*.conf;[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H#[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H#[8Clocation / {[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H#[8C}[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H#[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H#[8Cerror_page 404 /404.html;[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H#[12Clocation = /40x.html {[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H#[8C}[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H#[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H#[8Cerror_page 500 502 503 504 /50x.html;[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H#[12Clocation = /50x.html {[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H#[8C}[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H#    }[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H}[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H[?12l[?25h[23;1H[22;1H[21;1H[20;1H[19;1H[18;1H[17;1H[16;1H[15;1H[14;1H[13;1H[12;1H[11;1H[10;1H[9;1H[8;1H[7;1H[6;1H[5;1H[4;1H[3;1H[2;1H[1;1H[?25l[1;24r[1;1H[L[1;25r[1;1H#[?12l[?25h[?25l[1;24r[1;1H[L[1;25r[1;1H#[8Croot[9C/usr/share/nginx/html;[?12l[?25h[?25l[1;24r[1;1H[L[1;25r[1;1H#[8Cserver_name  _;[?12l[?25h[?25l[1;24r[1;1H[L[1;25r[1;1H#[8Clisten[7C[::]:443 ssl http2 default_server;[?12l[?25h[?25l[1;24r[1;1H[L[1;25r[1;1H#[8Clisten[7C443 ssl http2 default_server;[?12l[?25h[?25l[1;24r[1;1H[L[1;25r[1;1H#    server {[?12l[?25h[?25l[1;24r[1;1H[L[1;25r[1;1H#[?12l[?25h[?25l[1;24r[1;1H[L[1;25r[1;1H# Settings for a TLS enabled server.[?12l[?25h[?25l[1;24r[1;1H[L[1;25r[1;1H[?12l[?25h[?25l[1;24r[1;1H[L[1;25r[1;5H}[?12l[?25h[?25l[1;24r[1;1H[L[1;25r[1;9H}[?12l[?25h[?25l[1;24r[1;1H[L[1;25r[1;13Hlocation = /50x.html {[?12l[?25h[?25l[1;24r[1;1H[L[1;25r[1;9Herror_page 500 502 503 504 /50x.html;[?12l[?25h[?25l[1;24r[1;1H[L[1;25r[1;1H[?12l[?25h[?25l[1;24r[1;1H[L[1;25r[1;9H}[?12l[?25h[?25l[1;24r[1;1H[L[1;25r[1;13Hlocation = /40x.html {[?12l[?25h[?25l[1;24r[1;1H[L[1;25r[1;9Herror_page 404 /404.html;[?12l[?25h[?25l[1;24r[1;1H[L[1;25r[1;1H[?12l[?25h[?25l[1;24r[1;1H[L[1;25r[1;9H}[?12l[?25h[?25l[1;24r[1;1H[L[1;25r[1;9Hlocation / {[?12l[?25h[?25l[1;24r[1;1H[L[1;25r[1;1H[?12l[?25h[?25l[1;24r[1;1H[L[1;25r[1;9Hinclude /etc/nginx/default.d/*.conf;[?12l[?25h[?25l[1;24r[1;1H[L[1;25r[1;9H# Load configuration files for the default server block.[?12l[?25h[?25l[1;24r[1;1H[L[1;25r[1;1H[?12l[?25h[?25l[1;24r[1;1H[L[1;25r[1;9Hroot[9C/usr/share/nginx/html;[?12l[?25h[?25l[1;24r[1;1H[L[1;25r[1;9Hserver_name  _;[?12l[?25h[?25l[1;24r[1;1H[L[1;25r[1;9Hlisten[7C[::]:80 default_server;[?12l[?25h[?25l[1;24r[1;1H[L[1;25r[1;9Hlisten[7C80 default_server;[?12l[?25h[?25l[1;24r[1;1H[L[1;25r[1;5Hserver {[?12l[?25h[?25l[1;24r[1;1H[L[1;25r[1;1H[?12l[?25h[?25l[1;24r[1;1H[L[1;25r[1;5Hinclude /etc/nginx/conf.d/*.conf;[?12l[?25h[?25l[1;24r[1;1H[L[1;25r[1;5H# for more information.[?12l[?25h[?25l[1;24r[1;1H[L[1;25r[1;5H# See http://nginx.org/en/docs/ngx_core_module.html#include[?12l[?25h[?25l[1;24r[1;1H[L[1;25r[1;5H# Load modular configuration files from the /etc/nginx/conf.d directory.[?12l[?25h[?25l[1;24r[1;1H[L[1;25r[1;1H[?12l[?25h[?25l[1;24r[1;1H[L[1;25r[1;5Hdefault_type[8Capplication/octet-stream;[?12l[?25h[?25l[1;24r[1;1H[L[1;25r[1;5Hinclude[13C/etc/nginx/mime.types;[?12l[?25h[?25l[1;24r[1;1H[L[1;25r[1;1H[?12l[?25h[?25l[1;24r[1;1H[L[1;25r[1;5Htypes_hash_max_size 2048;[?12l[?25h[?25l[1;24r[1;1H[L[1;25r[1;5Hkeepalive_timeout   65;[?12l[?25h[?25l[1;24r[1;1H[L[1;25r[1;5Htcp_nodelay[9Con;[?12l[?25h[?25l[1;24r[1;1H[L[1;25r[1;5Htcp_nopush[10Con;[?12l[?25h[?25l[1;24r[1;1H[L[1;25r[1;5Hsendfile[12Con;[?12l[?25h[?25l[1;24r[1;1H[L[1;25r[1;1H[?12l[?25h[?25l[1;24r[1;1H[L[1;25r[1;5Haccess_log  /var/log/nginx/access.log  main;[?12l[?25h[?25l[1;24r[1;1H[L[1;25r[1;1H[?12l[?25h[?25l[1;24r[1;1H[L[1;25r[1;23H'"$http_user_agent" "$http_x_forwarded_for"';[?12l[?25h[?25l[1;24r[1;1H[L[1;25r[1;23H'$status $body_bytes_sent "$http_referer" '[?12l[?25h
+
+
+    access_log  /var/log/nginx/access.log  main[?25l[25;1H[1m-- INSERT --[4;38H[?12l[?25h[m.log  main;[?25l;[4;48H[K[4;47H[?12l[?25h[?25l;[4;47H[K[4;46H[?12l[?25h[?25l;[4;46H[K[4;45H[?12l[?25h[?25l;[4;45H[K[4;44H[?12l[?25h[?25l;[4;44H[K[4;43H[?12l[?25h[?25l;[4;43H[K[4;42H[?12l[?25h[?25l;[4;42H[K[4;41H[?12l[?25h[?25l;[4;41H[K[4;40H[?12l[?25h[?25l;[4;40H[K[4;39H[?12l[?25h[?25l;[4;39H[K[4;38H[?12l[?25h[?25l;[4;38H[K[4;37H[?12l[?25h[?25l;[4;37H[K[4;36H[?12l[?25h[?25l;[4;36H[K[4;35H[?12l[?25h[?25l;[4;35H[K[4;34H[?12l[?25h[?25l;[4;34H[K[4;33H[?12l[?25h[?25l;[4;33H[K[4;32H[?12l[?25h[?25l;[4;32H[K[4;31H[?12l[?25h[?25l;[4;31H[K[4;30H[?12l[?25h[?25l;[4;30H[K[4;29H[?12l[?25h[?25l;[4;29H[K[4;28H[?12l[?25h[?25l;[4;28H[K[4;27H[?12l[?25h[?25l;[4;27H[K[4;26H[?12l[?25h[?25l;[4;26H[K[4;25H[?12l[?25h[?25l;[4;25H[K[4;24H[?12l[?25h[?25l;[4;24H[K[4;23H[?12l[?25h[?25l;[4;23H[K[4;22H[?12l[?25h[?25l;[4;22H[K[4;21H[?12l[?25h[?25l;[4;21H[K[4;20H[?12l[?25h[?25l;[4;20H[K[4;19H[?12l[?25h[?25l;[4;19H[K[4;18H[?12l[?25h[?25l;[4;18H[K[4;17H[?12l[?25h[?25ls;[?12l[?25h[?25ly;[?12l[?25h[?25ls;[?12l[?25h[?25ll;[?12l[?25h[?25ll;[?12l[?25h[?25lo;[?12l[?25h[?25l;[4;23H[K[4;22H[?12l[?25h[?25l;[4;22H[K[4;21H[?12l[?25h[?25lo;[?12l[?25h[?25lg;[?12l[?25h[?25l:;[?12l[?25h[?25ls;[?12l[?25h[?25le;[?12l[?25h[?25lr;[?12l[?25h[?25lv;[?12l[?25h[?25le;[?12l[?25h[?25lr;[?12l[?25h[?25l=;[?12l[?25h[?25l1;[?12l[?25h[?25l9;[?12l[?25h[?25l2;[?12l[?25h[?25l.;[?12l[?25h[?25l1;[?12l[?25h[?25l6;[?12l[?25h[?25l8;[?12l[?25h[?25l.;[?12l[?25h[?25l1;[?12l[?25h[?25l0;[?12l[?25h[?25l0;[?12l[?25h[?25l.;[?12l[?25h[?25l1;[?12l[?25h[?25l1;[?12l[?25h[?25l,;[?12l[?25h[?25lf;[?12l[?25h[?25la;[?12l[?25h[?25lc;[?12l[?25h[?25li;[?12l[?25h[?25ll;[?12l[?25h[?25li;[?12l[?25h[?25lt;[?12l[?25h[?25ly;[?12l[?25h[?25l=;[?12l[?25h[?25ll;[?12l[?25h[?25lo;[?12l[?25h[?25lc;[?12l[?25h[?25la;[?12l[?25h[?25ll;[?12l[?25h[?25l7;[?12l[?25h[?25l,;[?12l[?25h[?25l ;[?12l[?25h[?25l;[4;63H[K[4;62H[?12l[?25h[?25lt;[?12l[?25h[?25la;[?12l[?25h[?25lg;[?12l[?25h[?25l=;[?12l[?25h[?25ln;[?12l[?25h[?25lg;[?12l[?25h[?25li;[?12l[?25h[?25ln;[?12l[?25h[?25lx;[?12l[?25h[?25l,;[?12l[?25h[?25ls;[?12l[?25h[?25le;[?12l[?25h[?25lv;[?12l[?25h[?25le;[?12l[?25h[?25lr;[?12l[?25h[?25li;[?12l[?25h[?25lt;[?12l[?25h[?25ly;[?12l[?25h[?25l=;[?12l[?25h[?25li;[?12l[?25h[?25ln;[?12l[?25h[?25lf;[?12l[?25h[?25lo;[?12l[?25h[?25l ;[?12l[?25h[?25lm;[?12l[?25h[?25la;[?12l[?25h[?25li;[?12l[?25h[?25ln;[?12l[?25h[?25ll;[?12l[?25h[?25l;[4;91H[K[4;90H[?12l[?25h[?25ll;[?12l[?25h[?25l;[4;91H[K[4;90H[?12l[?25h[?25l;;[?12l[?25h[?25l=;[?12l[?25h[?25l;[4;92H[K[4;91H[?12l[?25h[?25l[4;91H[K[4;90H[?12l[?25h
+[6;28H[7;28H[8;28H[9;28H[10;30H
+[12;47H[13;50H
+[15;77H[16;64H[17;28H[18;38H
+[20;13H[21;40H[22;45H[23;24H[24;44H[?25l[1;24r[24;1H
+[1;25r[24;1H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;9H# Load configuration files for the default server block.[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;9Hinclude /etc/nginx/default.d/*.conf;[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;9Hlocation / {[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;9H}[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;9Herror_page 404 /404.html;[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;13Hlocation = /40x.html {[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;9H}[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;9Herror_page 500 502 503 504 /50x.html;[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;13Hlocation = /50x.html {[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;9H}[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;5H}[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H# Settings for a TLS enabled server.[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H#[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H#    server {[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H#[8Clisten[7C443 ssl http2 default_server;[?12l[?25h[23;14H[22;2H[21;37H[20;1H[19;6H[18;10H[17;35H[16;46H[15;1H[14;10H[13;35H[12;34H[11;1H[10;10H[9;21H[8;1H[7;45H[6;65H[5;1H[4;44H[3;24H[2;45H[1;40H[?25l[1;24r[1;1H[L[1;25r[1;5Hserver {[?12l[?25h[?25l[1;24r[1;1H[L[1;25r[1;1H[?12l[?25h[?25l[1;24r[1;1H[L[1;25r[1;5Hinclude /etc/nginx/conf.d/*.conf;[?12l[?25h[?25l[1;24r[1;1H[L[1;25r[1;5H# for more information.[?12l[?25h[?25l[1;24r[1;1H[L[1;25r[1;5H# See http://nginx.org/en/docs/ngx_core_module.html#include[?12l[?25h[?25l[1;24r[1;1H[L[1;25r[1;5H# Load modular configuration files from the /etc/nginx/conf.d directory.[?12l[?25h[?25l[1;24r[1;1H[L[1;25r[1;1H[?12l[?25h[?25l[1;24r[1;1H[L[1;25r[1;5Hdefault_type[8Capplication/octet-stream;[?12l[?25h[?25l[1;24r[1;1H[L[1;25r[1;5Hinclude[13C/etc/nginx/mime.types;[?12l[?25h[?25l[1;24r[1;1H[L[1;25r[1;1H[?12l[?25h[?25l[1;24r[1;1H[L[1;25r[1;5Htypes_hash_max_size 2048;[?12l[?25h[?25l[1;24r[1;1H[L[1;25r[1;5Hkeepalive_timeout   65;[?12l[?25h[?25l[1;24r[1;1H[L[1;25r[1;5Htcp_nodelay[9Con;[?12l[?25h[?25l[1;24r[1;1H[L[1;25r[1;5Htcp_nopush[10Con;[?12l[?25h[?25l[1;24r[1;1H[L[1;25r[1;5Hsendfile[12Con;[?12l[?25h[?25l[1;24r[1;1H[L[1;25r[1;1H[?12l[?25h[?25l[1;24r[1;1H[L[1;25r[1;5Haccess_log  syslog:server=192.168.100.11,facility=local7,tag=nginx,severity=info main;[?12l[?25h[?25l[1;24r[1;1H[L[1;25r[1;1H[?12l[?25h[?25l[1;24r[1;1H[L[1;25r[1;23H'"$http_user_agent" "$http_x_forwarded_for"';[?12l[?25h[?25l[1;24r[1;1H[L[1;25r[1;23H'$status $body_bytes_sent "$http_referer" '[?12l[?25h[?25l[1;24r[1;1H[L[1;25r[1;5Hlog_format  main  '$remote_addr - $remote_user [$time_local] "$request" '[?12l[?25h[?25l[1;24r[1;1H[L[1;25r[1;1Hhttp {[?12l[?25h[?25l[1;24r[1;1H[L[1;25r[1;1H[?12l[?25h[?25l[1;24r[1;1H[L[1;25r[1;1H}[?12l[?25h[?25l[1;24r[1;1H[L[1;25r[1;5Hworker_connections 1024;[?12l[?25h[?25l[1;24r[1;1H[L[1;25r[1;1Hevents {[?12l[?25h[?25l[1;24r[1;1H[L[1;25r[1;1H[?12l[?25h[?25l[1;24r[1;1H[L[1;25r[1;1Hinclude /usr/share/nginx/modules/*.conf;[?12l[?25h[?25l[1;24r[1;1H[L[1;25r[1;1H# Load dynamic modules. See /usr/share/doc/nginx/README.dynamic.[?12l[?25h[?25l[1;24r[1;1H[L[1;25r[1;1H[?12l[?25h[?25l[1;24r[1;1H[L[1;25r[1;1Hpid /run/nginx.pid;[?12l[?25h[?25l[1;24r[1;1H[L[1;25r[1;1Herror_log /var/log/nginx/error.log;[?12l[?25h[?25l[1;24r[1;1H[L[1;25r[1;1Hworker_processes auto;[?12l[?25h[?25l[1;24r[1;1H[L[1;25r[1;1Huser nginx;[?12l[?25h[?25l[1;24r[1;1H[L[1;25r[1;1H[?12l[?25h[?25l[1;24r[1;1H[L[1;25r[1;1H#   * Official Russian Documentation: http://nginx.org/ru/docs/[?12l[?25h[?25l[1;24r[1;1H[L[1;25r[1;1H#   * Official English Documentation: http://nginx.org/en/docs/[?12l[?25h[?25l[1;24r[1;1H[L[1;25r[1;1H# For more information on configuration, see:[?12l[?25h[2;64H[3;64H
+[5;12H[6;23H[7;36Hnginx/error.log;[?25l ;[?12l[?25h[?25lc;[?12l[?25h[?25lr;[?12l[?25h[?25li;[?12l[?25h[?25lt;[?12l[?25h[25;1H[K[7;39H[?25l[?12l[?25h[?25l[25;1H:[?12l[?25hwq[?25l"/etc/nginx/nginx.conf" 90L, 2518C written
+[?1l>[?12l[?25h[?1049l]0;root@web:/home/vagrant[root@web vagrant]# vi /etc/nginx/nginx.conf[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Csystemctl restart rsyslog[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[5Pvi /etc/rsyslog.confsystemctl restart rsyslog[K[K[K[K[K[K[Knginx
+]0;root@web:/home/vagrant[root@web vagrant]# systemctl restart nginx[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cvi /etc/nginx/nginx.conf[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Csystemctl restart rsyslog[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1Pvi /etc/nginx/nginx.conf
+[?1049h[?1h=[1;25r[?12;25h[?12l[?25h[27m[m[H[2J[?25l[25;1H"/etc/nginx/nginx.conf" 90L, 2518C[1;1H# For more information on configuration, see:
+#   * Official English Documentation: http://nginx.org/en/docs/
+#   * Official Russian Documentation: http://nginx.org/ru/docs/
+
+user nginx;
+worker_processes auto;
+error_log /var/log/nginx/error.log crit;
+pid /run/nginx.pid;
+
+# Load dynamic modules. See /usr/share/doc/nginx/README.dynamic.
+include /usr/share/nginx/modules/*.conf;
+
+events {
+    worker_connections 1024;
+}
+
+http {
+    log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '[19;23H'$status $body_bytes_sent "$http_referer" '[20;23H'"$http_user_agent" "$http_x_forwarded_for"';[22;5Haccess_log  syslog:server=192.168.100.11,facility=local7,tag=nginx,severity=info main;[24;5Hsendfile[12Con;[1;1H[?12l[?25h
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[?25l[1;24r[24;1H
+[1;25r[24;5Htcp_nopush[10Con;[25;1H[K[24;1H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;5Htcp_nodelay[9Con;[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;5Hkeepalive_timeout   65;[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;5Htypes_hash_max_size 2048;[?12l[?25h[23;1H[22;1H[21;1H[20;1H[19;1H[18;1H[17;1H[16;1H
+[16;1H[15;1H[14;1H[13;1H[12;1H[11;1H[10;1H[9;1H[8;1H[7;1H[6;1H[5;1H[4;1H[3;1H[2;1H
+error_log /var/log/nginx/error.log crit[?25l[25;1H[1m-- INSERT --[3;40H[?12l[?25h[m;[?25l[4;24r[4;1H[L[1;25r[4;1H[?12l[?25h[?25le[?12l[?25h[?25lr[?12l[?25h[?25lr[?12l[?25h[?25lo[?12l[?25h[?25lr[?12l[?25h[?25l_[?12l[?25h[?25ll[?12l[?25h[?25lo[?12l[?25h[?25lg[?12l[?25h[?25l [?12l[?25h[?25ls[?12l[?25h[?25ly[?12l[?25h[?25ls[?12l[?25h[?25ll[?12l[?25h[?25lo[?12l[?25h[?25lg[?12l[?25h[?25l:[?12l[?25h[?25ls[?12l[?25h[?25le[?12l[?25h[?25lr[?12l[?25h[?25lv[?12l[?25h[?25le[?12l[?25h[?25lr[?12l[?25h[?25l=[?12l[?25h[?25l1[?12l[?25h[?25l9[?12l[?25h[?25l2[?12l[?25h[?25l.[?12l[?25h[?25l1[?12l[?25h[?25l6[?12l[?25h[?25l8[?12l[?25h[?25l.[?12l[?25h[?25l8[?12l[?25h[?25l8[?12l[?25h[?25l.[?12l[?25h[?25l[4;35H[K[4;35H[?12l[?25h[?25l[4;34H[K[4;34H[?12l[?25h[?25l[4;33H[K[4;33H[?12l[?25h[?25l1[?12l[?25h[?25l0[?12l[?25h[?25l0[?12l[?25h[?25l.[?12l[?25h[?25l1[?12l[?25h[?25l1[?12l[?25h[?25l,[?12l[?25h[?25lf[?12l[?25h[?25la[?12l[?25h[?25lc[?12l[?25h[?25li[?12l[?25h[?25ll[?12l[?25h[?25li[?12l[?25h[?25lt[?12l[?25h[?25ly[?12l[?25h[?25l=[?12l[?25h[?25ll[?12l[?25h[?25lo[?12l[?25h[?25lc[?12l[?25h[?25la[?12l[?25h[?25ll[?12l[?25h[?25l6[?12l[?25h[?25l,[?12l[?25h[?25lt[?12l[?25h[?25la[?12l[?25h[?25lg[?12l[?25h[?25l=[?12l[?25h[?25ln[?12l[?25h[?25lg[?12l[?25h[?25li[?12l[?25h[?25ln[?12l[?25h[?25lx[?12l[?25h[?25l_[?12l[?25h[?25le[?12l[?25h[?25lr[?12l[?25h[?25lr[?12l[?25h[?25lo[?12l[?25h[?25lr[?12l[?25h[?25l;[?12l[?25h[25;1H[K[4;71H[?25l[?12l[?25h[?25l[25;1H:[?12l[?25hwq[?25l"/etc/nginx/nginx.conf" 91L, 2590C written
+[?1l>[?12l[?25h[?1049l]0;root@web:/home/vagrant[root@web vagrant]# vi /etc/nginx/nginx.conf[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1Psystemctl restart nginx
+]0;root@web:/home/vagrant[root@web vagrant]# [K[root@web vagrant]# [K[root@web vagrant]# [K[root@web vagrant]# [K[root@web vagrant]# [K[root@web vagrant]# 
+]0;root@web:/home/vagrant[root@web vagrant]# 
+]0;root@web:/home/vagrant[root@web vagrant]# ещг[K[K[Knano /etc/a
+adjtime       aliases       aliases.db    alternatives/ anacrontab    audisp/       audit/
+[root@web vagrant]# nano /etc/auf[Kdit/
+auditd.conf       audit.rules       audit-stop.rules  rules.d/          
+[root@web vagrant]# nano /etc/audit/rules.d/nginx_cong[Kf.rue[Kles
+bash: nano: command not found
+]0;root@web:/home/vagrant[root@web vagrant]# nano /etc/audit/rules.d/nginx_conf.rules[C[1P /etc/audit/rules.d/nginx_conf.rules[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1P /etc/audit/rules.d/nginx_conf.rules[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1P /etc/audit/rules.d/nginx_conf.rules[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1P /etc/audit/rules.d/nginx_conf.rules[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cv /etc/audit/rules.d/nginx_conf.rules[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ci /etc/audit/rules.d/nginx_conf.rules[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+[?1049h[?1h=[1;20r[?12;25h[?12l[?25h[27m[m[H[2J[?25l[20;1H"/etc/audit/rules.d/nginx_conf.rules" [New File][2;1H[94m~                                                                                                       [3;1H~                                                                                                       [4;1H~                                                                                                       [5;1H~                                                                                                       [6;1H~                                                                                                       [7;1H~                                                                                                       [8;1H~                                                                                                       [9;1H~                                                                                                       [10;1H~                                                                                                       [11;1H~                                                                                                       [12;1H~                                                                                                       [13;1H~                                                                                                       [14;1H~                                                                                                       [15;1H~                                                                                                       [16;1H~                                                                                                       [17;1H~                                                                                                       [18;1H~                                                                                                       [19;1H~                                                                                                       [1;1H[?12l[?25h[?25l[m[20;1H[1m-- INSERT --[m[20;13H[K[1;1H[?12l[?25h[?25l-[?12l[?25h[?25lw[?12l[?25h[?25l [?12l[?25h[?25l/[?12l[?25h[?25le[?12l[?25h[?25le[?12l[?25h[?25l[1;6H[K[1;6H[?12l[?25h[?25lt[?12l[?25h[?25lc[?12l[?25h[?25l/[?12l[?25h[?25ln[?12l[?25h[?25lg[?12l[?25h[?25li[?12l[?25h[?25ln[?12l[?25h[?25lx[?12l[?25h[?25l/[?12l[?25h[?25l[1;14H[K[1;14H[?12l[?25h[?25l [?12l[?25h[?25l-[?12l[?25h[?25lp[?12l[?25h[?25l [?12l[?25h[?25lw[?12l[?25h[?25la[?12l[?25h[?25l [?12l[?25h[?25l-[?12l[?25h[?25lk[?12l[?25h[?25l [?12l[?25h[?25ln[?12l[?25h[?25lg[?12l[?25h[?25li[?12l[?25h[?25ln[?12l[?25h[?25lx[?12l[?25h[?25l_[?12l[?25h[?25lc[?12l[?25h[?25lo[?12l[?25h[?25ln[?12l[?25h[?25lg[?12l[?25h[?25l[1;33H[K[1;33H[?12l[?25h[?25lf[?12l[?25h[20;1H[K[1;33H[?25l[?12l[?25h[?25l[20;1H:[?12l[?25hwq[?25l"/etc/audit/rules.d/nginx_conf.rules" [New] 1L, 34C written
+[?1l>[?12l[?25h[?1049l]0;root@web:/home/vagrant[root@web vagrant]# service auditd restart
+Stopping logging: [60G[[0;32m  OK  [0;39m]
+Redirecting start to /bin/systemctl start auditd.service
+]0;root@web:/home/vagrant[root@web vagrant]# yum install ausi[K[Kdispd-plugins
+Loaded plugins: fastestmirror
+Loading mirror speeds from cached hostfile
+ * base: mirrors.datahouse.ru
+ * epel: mirror.yandex.ru
+ * extras: mirrors.datahouse.ru
+ * updates: dedic.sh
+Resolving Dependencies
+--> Running transaction check
+---> Package audispd-plugins.x86_64 0:2.8.5-4.el7 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+========================================================================================================
+ Package                       Arch                 Version                    Repository          Size
+========================================================================================================
+Installing:
+ audispd-plugins               x86_64               2.8.5-4.el7                base                53 k
+
+Transaction Summary
+========================================================================================================
+Install  1 Package
+
+Total download size: 53 k
+Installed size: 86 k
+Is this ok [y/d/N]: н y
+Downloading packages:
+audispd-plugins-2.8.5-4.el7.x86_64.rpm                                           |  53 kB  00:00:00     
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : audispd-plugins-2.8.5-4.el7.x86_64 [                                               ] 1/1  Installing : audispd-plugins-2.8.5-4.el7.x86_64 [########################                       ] 1/1  Installing : audispd-plugins-2.8.5-4.el7.x86_64 [#########################################      ] 1/1  Installing : audispd-plugins-2.8.5-4.el7.x86_64 [###########################################    ] 1/1  Installing : audispd-plugins-2.8.5-4.el7.x86_64 [############################################   ] 1/1  Installing : audispd-plugins-2.8.5-4.el7.x86_64 [############################################## ] 1/1  Installing : audispd-plugins-2.8.5-4.el7.x86_64                                                   1/1 
+  Verifying  : audispd-plugins-2.8.5-4.el7.x86_64                                                   1/1 
+
+Installed:
+  audispd-plugins.x86_64 0:2.8.5-4.el7                                                                  
+
+Complete!
+]0;root@web:/home/vagrant[root@web vagrant]# 
+]0;root@web:/home/vagrant[root@web vagrant]# 
+]0;root@web:/home/vagrant[root@web vagrant]# yum install audispd-plugins[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[5Pservice auditd restart[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cyum install audispd-plugins[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Kvi /etc/audisp/audisp-remote.conf
+[?1049h[?1h=[1;20r[?12;25h[?12l[?25h[27m[m[H[2J[?25l[20;1H"/etc/audisp/audisp-remote.conf" 32L, 726C[1;1H#
+# This file controls the configuration of the audit remote
+# logging subsystem, audisp-remote.
+#
+
+remote_server =
+port = 60
+##local_port =
+transport = tcp
+queue_file = /var/spool/audit/remote.log
+mode = immediate
+queue_depth = 10240
+format = managed
+network_retry_time = 1
+max_tries_per_record = 3
+max_time_per_record = 5
+heartbeat_timeout = 0
+
+network_failure_action = stop[1;1H[?12l[?25h
+
+
+
+
+remote_server =
+[6;1Hremote_server =[?25l[20;1H[1m-- INSERT --[m[20;13H[K[6;16H[?12l[?25h[?25l [?12l[?25h[?25l1[?12l[?25h[?25l9[?12l[?25h[?25l2[?12l[?25h[?25l.[?12l[?25h[?25l1[?12l[?25h[?25l6[?12l[?25h[?25l8[?12l[?25h[?25l.[?12l[?25h[?25l1[?12l[?25h[?25l0[?12l[?25h[?25l0[?12l[?25h[?25l.[?12l[?25h[?25l1[?12l[?25h[?25l1[?12l[?25h[20;1H[K[6;30H[?25l[?12l[?25h[?25l[20;1H:[?12l[?25hwq[?25l"/etc/audisp/audisp-remote.conf" 32L, 741C written
+[?1l>[?12l[?25h[?1049l]0;root@web:/home/vagrant[root@web vagrant]# vi e[K/etc/audisp/plugins.d/s[Kau-remote.conf 
+[?1049h[?1h=[1;20r[?12;25h[?12l[?25h[27m[m[H[2J[?25l[20;1H"/etc/audisp/plugins.d/au-remote.conf" 12L, 238C[2;1H# This file controls the audispd data path to the
+# remote event logger. This plugin will send events to
+# a remote machine (Central Logger).
+
+active = no
+direction = out
+path = /sbin/audisp-remote
+type = always
+#args =
+format = string
+
+[94m~                                                                                                       [14;1H~                                                                                                       [15;1H~                                                                                                       [16;1H~                                                                                                       [17;1H~                                                                                                       [18;1H~                                                                                                       [19;1H~                                                                                                       [1;1H[?12l[?25h
+[1;1H
+
+
+
+
+
+[6;1H
+[md[6;2Hctive = n[?25l[20;1H[1m-- INSERT --[m[20;13H[K[6;10H[?12l[?25hno[?25l[6;11H[K[6;11H[?12l[?25h[?25l[6;10H[K[6;10H[?12l[?25h[?25ly[?12l[?25h[?25le[?12l[?25h[?25ls[?12l[?25h[20;1H[K[6;12H[?25l[?12l[?25h[?25l[20;1H:[?12l[?25hwq[?25l"/etc/audisp/plugins.d/au-remote.conf" 12L, 239C written
+[?1l>[?12l[?25h[?1049l]0;root@web:/home/vagrant[root@web vagrant]# vi /etc/ausi[K[Kdit/audit,[K[Kt.rules[K[K[K[K[Kc[C[C[K[Ks[Kd.conf 
+[?1049h[?1h=[1;20r[?12;25h[?12l[?25h[27m[m[H[2J[?25l[20;1H"/etc/audit/auditd.conf" 37L, 805C[1;1H#
+# This file controls the configuration of the audit daemon
+#
+
+local_events = yes
+write_logs = yes
+log_file = /var/log/audit/audit.log
+log_group = root
+log_format = RAW
+flush = INCREMENTAL_ASYNC
+freq = 50
+max_log_file = 8
+num_logs = 5
+priority_boost = 4
+disp_qos = lossy
+dispatcher = /sbin/audispd
+name_format = NONE
+##name = mydomain
+max_log_file_action = ROTATE[1;1H[?12l[?25h
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[?25l[1;19r[19;1H
+[1;20r[19;1Hspace_left = 75[20;1H[K[19;1H[?12l[?25h[?25l[1;19r[19;1H
+[1;20r[19;1Hspace_left_action = SYSLOG[?12l[?25h[?25l[1;19r[19;1H
+[1;20r[19;1Hverify_email = yes[?12l[?25h[?25l[1;19r[19;1H
+[1;20r[19;1Haction_mail_acct = root[?12l[?25h[?25l[1;19r[19;1H
+[1;20r[19;1Hadmin_space_left = 50[?12l[?25h[?25l[1;19r[19;1H
+[1;20r[19;1Hadmin_space_left_action = SUSPEND[?12l[?25h[?25l[1;19r[19;1H
+[1;20r[19;1Hdisk_full_action = SUSPEND[?12l[?25h[?25l[1;19r[19;1H
+[1;20r[19;1Hdisk_error_action = SUSPEND[?12l[?25h[?25l[1;19r[19;1H
+[1;20r[19;1Huse_libwrap = yes[?12l[?25h[?25l[1;19r[19;1H
+[1;20r[19;1H##tcp_listen_port = 60[?12l[?25h[?25l[1;19r[19;1H
+[1;20r[19;1Htcp_listen_queue = 5[?12l[?25h[?25l[1;19r[19;1H
+[1;20r[19;1Htcp_max_per_addr = 1[?12l[?25h[?25l[1;19r[19;1H
+[1;20r[19;1H##tcp_client_ports = 1024-65535[?12l[?25h[?25l[1;19r[19;1H
+[1;20r[19;1Htcp_client_max_idle = 0[?12l[?25h[?25l[1;19r[19;1H
+[1;20r[19;1Henable_krb5 = no[?12l[?25h[?25l[1;19r[19;1H
+[1;20r[19;1Hkrb5_principal = auditd[?12l[?25h[?25l[1;19r[19;1H
+[1;20r[19;1H##krb5_key_file = /etc/audit/audit.key[?12l[?25h[?25l[1;19r[19;1H
+[1;20r[19;1Hdistribute_network = no[?12l[?25h[18;1H[17;1H[16;1H[15;1H[14;1H[13;1H[12;1H[11;1H[10;1H[9;1H[8;1H[7;1H[6;1H[5;1H[4;1H[3;1H[2;1H[1;1H[?25l[1;19r[1;1H[L[1;20r[1;1H##name = mydomain[?12l[?25h[?25l[1;19r[1;1H[L[1;20r[1;1Hname_format = NONE[?12l[?25h[?25l[1;19r[1;1H[L[1;20r[1;1Hdispatcher = /sbin/audispd[?12l[?25h[?25l[1;19r[1;1H[L[1;20r[1;1Hdisp_qos = lossy[?12l[?25h[?25l[1;19r[1;1H[L[1;20r[1;1Hpriority_boost = 4[?12l[?25h[?25l[1;19r[1;1H[L[1;20r[1;1Hnum_logs = 5[?12l[?25h[?25l[1;19r[1;1H[L[1;20r[1;1Hmax_log_file = 8[?12l[?25h[?25l[1;19r[1;1H[L[1;20r[1;1Hfreq = 50[?12l[?25h[?25l[1;19r[1;1H[L[1;20r[1;1Hflush = INCREMENTAL_ASYNC[?12l[?25h[?25l[1;19r[1;1H[L[1;20r[1;1Hlog_format = RAW[?12l[?25h[?25l[1;19r[1;1H[L[1;20r[1;1Hlog_group = root[?12l[?25h[?25l[1;19r[1;1H[L[1;20r[1;1Hlog_file = /var/log/audit/audit.log[?12l[?25h[?25l[1;19r[1;1H[L[1;20r[1;1Hwrite_logs = yes[?12l[?25h[?25l[1;19r[1;1H[L[1;20r[1;1Hlocal_events = yes[?12l[?25h
+write_logs = ye[?25l[20;1H[1m-- INSERT --[2;14H[?12l[?25h[myes[?25l[2;16H[K[2;16H[?12l[?25h[?25l[2;15H[K[2;15H[?12l[?25h[?25l[2;14H[K[2;14H[?12l[?25h[?25ln[?12l[?25h[?25lo[?12l[?25h[20;1H[K[2;15H[?25l[?12l[?25h
+[?25l[20;1H:[?12l[?25hwq[?25l"/etc/audit/auditd.conf" 37L, 804C written
+[?1l>[?12l[?25h[?1049l]0;root@web:/home/vagrant[root@web vagrant]# vi /etc/audit/auditd.conf 
+[?1049h[?1h=[1;20r[?12;25h[?12l[?25h[27m[m[H[2J[?25l[20;1H"/etc/audit/auditd.conf" 37L, 804C[1;1H#
+# This file controls the configuration of the audit daemon
+#
+
+local_events = yes
+write_logs = no
+log_file = /var/log/audit/audit.log
+log_group = root
+log_format = RAW
+flush = INCREMENTAL_ASYNC
+freq = 50
+max_log_file = 8
+num_logs = 5
+priority_boost = 4
+disp_qos = lossy
+dispatcher = /sbin/audispd
+name_format = NONE
+##name = mydomain
+max_log_file_action = ROTATE[1;1H[?12l[?25h[?25l[20;1H[K[20;1H:[?12l[?25hq[?25l[20;1H[K[20;1H[?1l>[?12l[?25h[?1049l]0;root@web:/home/vagrant[root@web vagrant]# иф[K[Kvi /etc/audit/auditd.conf [14@sp/plugins.d/au-remote[C[C[C[C[C[C[7Paudisp-remote.conf[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[6Pyum install audispd-plugins[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[5Pservice auditd restart[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cyum install audispd-plugins[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[5Pservice auditd restart[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cvi /etc/audit/rules.d/nginx_conf.rules[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[16Pservice auditd restart
+Stopping logging: [60G[[0;32m  OK  [0;39m]
+Redirecting start to /bin/systemctl start auditd.service
+]0;root@web:/home/vagrant[root@web vagrant]# typescript[K[K[K[K[K[K[K[K[K[Kexit
+exit
+
+Script done on Sat 06 Jun 2020 04:33:18 PM UTC
