@@ -24,8 +24,23 @@
 
 1. Добавим правило аудита для мониторинга изменений конфига nginx. Создадим файл _/etc/audit/rules.d/nginx_conf.rules_ c содержимым `-w /etc/nginx -p wa -k nginx_conf`
 2. Установим audisp-plugin `yum install audisp-plugin`
-3. Настроим IP-адрес удаленного сервера, добавив его в файл конфига _/etc/audisp/audisp-remote.conf_, параметр remote_server=192.168.100.11
+3. Настроим IP-адрес удаленного сервера, добавив его в файл конфига _/etc/audisp/audisp-remote.conf_, параметр _remote_server=192.168.100.11_
 4. Включим удаленную отправку логов отредактировав параметр _active = yes_ в файле _/etc/audisp/plugins.d/au-remote.conf_
 5. Отключим локальное хранение auditd логов отредактировав параметр _write_logs = no_ 
-6. Перезапуcтим службу `write_logs = no`
+6. Перезапуcтим службу `service auditd restart`
+`
+
+## Проверка работоспособности
+
+1. Проверим, что критические ошибки отправляются на сервер
+
+![alt-текст](https://github.com/awesomenmi/logs/blob/master/screenshoots/Screenshot%20from%202020-06-06%2020-08-38.png?raw=true)
+
+2. Проверим, что access-лог nginx-a отправляется на удаленный сервер
+
+![alt-текст](https://github.com/awesomenmi/logs/blob/master/screenshoots/Screenshot%20from%202020-06-06%2020-10-26.png?raw=true)
+
+3. Изменим конфиг nginx и проверим, как отрабатывает audit (логи отправляются на удаленный сервер и не хранятся локально)
+
+![alt-текст](https://github.com/awesomenmi/logs/blob/master/screenshoots/Screenshot%20from%202020-06-06%2020-46-10.png?raw=true)
 
